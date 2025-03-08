@@ -60,7 +60,7 @@ plt.legend()
 plt.grid()
 plt.show()
 ```
-
+![alt text](image-2.png)
 
 
 ## 3. Practical Applications

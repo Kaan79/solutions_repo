@@ -187,41 +187,7 @@ plot_time_of_flight()
 ```
 ![alt text](image-14.png)
 
-## **3. Analysis of Range Dependence on Launch Angle**
-The horizontal range ( R ) is given by:
 
-[ R = frac{v_0^2 sin(2 theta)}{g} ]
-
-- The range is maximized when ( theta = 45^circ ).
-- Increasing initial velocity increases the range quadratically.
-- If the launch height is nonzero, a more complex formula is required.
-
-The following Python code simulates the effect of launch angle on range:
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-
-def projectile_range(theta, v0, g=9.81):
-    theta_rad = np.radians(theta)
-    return (v0**2 * np.sin(2 * theta_rad)) / g
-
-angles = np.linspace(0, 90, 100)
-ranges = [projectile_range(theta, 20) for theta in angles]
-
-plt.figure(figsize=(10, 5))
-plt.plot(angles, ranges, label='Range vs. Angle')
-plt.xlabel('Launch Angle (degrees)')
-plt.ylabel('Range (m)')
-plt.title('Effect of Launch Angle on Range')
-plt.legend()
-plt.grid()
-plt.show()
-``` 
-![alt text](image-10.png)
----
-
-This means the projectile maintains a constant horizontal velocity throughout its flight.
 
 ### **2.2 Vertical Motion**
 In contrast to horizontal motion, the vertical component is affected by gravitational acceleration (( g )), causing the projectile to slow down on the way up and speed up on the way down. The vertical position ( y ) at any time ( t ) is given by the kinematic equation:
@@ -463,7 +429,7 @@ In reality, a projectile moving through air or any gaseous medium constantly int
 
 These factors must be considered, especially for long-range projectiles or high-speed objects. More accurate modeling involves using **Navier-Stokes equations** or empirical drag force models.  
 
-## **2. Wind Effects and Atmospheric Variability**
+## **6. Wind Effects and Atmospheric Variability**
 
 Moving air masses (wind) influence both the **horizontal** and **vertical** components of projectile motion. Unlike an idealized case where a projectile moves in still air, real-world atmospheric conditions introduce additional forces that modify the trajectory. These effects can be categorized as follows:  
 
@@ -598,7 +564,7 @@ plt.show()
 ```
 ![alt text](image-16.png)
 
-## **6. Conclusion**  
+## **7. Conclusion**  
 
 The study of **projectile motion** offers valuable insights into fundamental physics, providing a clear understanding of motion under the influence of gravity. Through analytical and computational approaches, several key findings have been established:  
 

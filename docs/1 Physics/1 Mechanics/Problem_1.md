@@ -315,7 +315,7 @@ plt.grid()
 # Show the plot
 plt.show()
 
-# Output time of flight
+# Output time of flight 
 print(f"Time of Flight: {T:.2f} seconds")
 ```
 ![alt text](image-17.png)

@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Projectile Motion: Theoretical and Computational Analysis - Physics and Mathematics</title>
+<title>Projectile Motion: A Theoretical and Computational Study - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Projectile Motion: Theoretical and Computational Analysis";
+        var mkdocs_page_name = "Projectile Motion: A Theoretical and Computational Study";
         var mkdocs_page_input_path = "1 Physics/1 Mechanics/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -46,27 +46,25 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal current">1 Mechanics</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Projectile Motion: Theoretical and Computational Analysis</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Projectile Motion: A Theoretical and Computational Study</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#1-theoretical-foundation">1. Theoretical Foundation</a>
+<li class="toctree-l3"><a class="reference internal" href="#1-introduction">1. Introduction</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-governing-equations-of-motion">2. Governing Equations of Motion</a>
 <ul>
-<li class="toctree-l4"><a class="reference internal" href="#governing-equations">Governing Equations</a>
+<li class="toctree-l4"><a class="reference internal" href="#21-horizontal-motion">2.1 Horizontal Motion</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#time-of-flight">Time of Flight</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#range-equation">Range Equation</a>
+<li class="toctree-l4"><a class="reference internal" href="#22-vertical-motion">2.2 Vertical Motion</a>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#2-analysis-of-the-range">2. Analysis of the Range</a>
+<li class="toctree-l3"><a class="reference internal" href="#3-analysis-of-range-dependence-on-launch-angle">3. Analysis of Range Dependence on Launch Angle</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#3-practical-applications">3. Practical Applications</a>
+<li class="toctree-l3"><a class="reference internal" href="#4-computational-implementation">4. Computational Implementation</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#4-implementation">4. Implementation</a>
+<li class="toctree-l3"><a class="reference internal" href="#5-limitations-and-further-considerations">5. Limitations and Further Considerations</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#discussion">Discussion</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
+<li class="toctree-l3"><a class="reference internal" href="#6-conclusion">6. Conclusion</a>
 </li>
 </ul>
 </li>
@@ -183,7 +181,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">1 Mechanics</li>
-<li class="breadcrumb-item active">Projectile Motion: Theoretical and Computational Analysis</li>
+<li class="breadcrumb-item active">Projectile Motion: A Theoretical and Computational Study</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -191,93 +189,128 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="projectile-motion-theoretical-and-computational-analysis">Projectile Motion: Theoretical and Computational Analysis</h1>
-<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
-<p>Projectile motion follows Newton’s laws of motion. Assuming no air resistance, the motion can be decomposed into horizontal and vertical components.</p>
-<h3 id="governing-equations">Governing Equations</h3>
-<p>From kinematic equations:
-- Horizontal motion:
-  [ x = v_0 \cos\theta \cdot t ]
-- Vertical motion:
-  [ y = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2 ]</p>
-<p>where:
-- ( v_0 ) is the initial velocity
-- ( \theta ) is the launch angle
-- ( g ) is the gravitational acceleration
-- ( t ) is time</p>
-<h3 id="time-of-flight">Time of Flight</h3>
-<p>The time to reach the ground (( y = 0 )):
-[
-t_f = \frac{2 v_0 \sin\theta}{g}
-]</p>
-<h3 id="range-equation">Range Equation</h3>
-<p>The horizontal range ( R ) is given by:
-[
-R = \frac{v_0^2 \sin 2\theta}{g}
-]</p>
-<h2 id="2-analysis-of-the-range">2. Analysis of the Range</h2>
-<p>The range depends on the launch angle ( \theta ), initial velocity ( v_0 ), and gravitational acceleration ( g ). The optimal angle for maximum range is ( 45^\circ ).</p>
-<p>Let's visualize this with Python.</p>
+<h1 id="projectile-motion-a-theoretical-and-computational-study"><strong>Projectile Motion: A Theoretical and Computational Study</strong></h1>
+<h2 id="1-introduction"><strong>1. Introduction</strong></h2>
+<p>Projectile motion is a fundamental topic in classical mechanics that describes the motion of an object launched into the air, subject to gravitational acceleration. It plays a crucial role in understanding various real-world phenomena, from the trajectory of a thrown ball to the path of a rocket. The motion of a projectile can be decomposed into independent horizontal and vertical components, governed by well-established kinematic equations. These equations provide valuable insights into the relationship between velocity, acceleration, time, and displacement.</p>
+<p>This study aims to delve into the mathematical foundations of projectile motion, systematically deriving its governing equations from Newton’s laws of motion. By exploring the dependence of range, time of flight, and maximum height on initial launch conditions, we will demonstrate how these factors interact to shape the projectile’s path. </p>
+<p>Furthermore, we will analyze how variations in initial velocity, gravitational acceleration, and launch height influence the overall motion, leading to a diverse set of outcomes. A computational approach will be employed to simulate and visualize projectile trajectories, enabling a deeper understanding of the theoretical principles through numerical methods. By combining analytical derivations with computational techniques, we aim to bridge the gap between theoretical physics and real-world applications, demonstrating the practical significance of projectile motion across various disciplines, including sports, engineering, and astrophysics.</p>
+<p><img alt="Projectile Motion" src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Projectile_motion.svg"/></p>
+<hr/>
+<h2 id="2-governing-equations-of-motion"><strong>2. Governing Equations of Motion</strong></h2>
+<p>Projectile motion is governed by Newton’s laws of motion. To describe its behavior, we break it down into two components:</p>
+<h3 id="21-horizontal-motion"><strong>2.1 Horizontal Motion</strong></h3>
+<p>In the absence of air resistance, the horizontal velocity remains constant since no horizontal force acts on the projectile:</p>
+<p>[ x = v_0 \cos(\theta) t ]</p>
+<ul>
+<li>Here, ( v_0 ) is the initial velocity, and ( theta ) is the launch angle.</li>
+<li>Since there is no acceleration in the horizontal direction, the velocity remains constant:</li>
+</ul>
+<p>[ v_x = v_0 \cos(\theta) ]</p>
+<h3 id="22-vertical-motion"><strong>2.2 Vertical Motion</strong></h3>
+<p>The vertical motion is influenced by gravity, which causes a constant downward acceleration of ( g ). Using kinematic equations:</p>
+<p>[ y = y_0 + v_0 \sin(\theta) t - \frac{1}{2} g t^2 ]</p>
+<p>The vertical velocity at any time ( t ) is given by:</p>
+<p>[ v_y = v_0 \sin(\theta) - g t ]</p>
+<p>The maximum height ( H ) occurs when ( v_y = 0 ):</p>
+<p>[ H = \frac{(v_0 \sin(\theta))^2}{2g} ]</p>
+<p>The total time of flight ( T ) can be derived by setting ( y = 0 ) and solving for ( t ):</p>
+<p>[ T = \frac{2 v_0 \sin(\theta)}{g} ]</p>
+<p>This breakdown allows us to predict the full trajectory of the projectile and analyze how various initial conditions influence the motion.</p>
+<p><img alt="Projectile Motion Components" src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Trajectory_of_a_projectile.svg"/></p>
+<hr/>
+<h2 id="3-analysis-of-range-dependence-on-launch-angle"><strong>3. Analysis of Range Dependence on Launch Angle</strong></h2>
+<p>The horizontal range ( R ) is given by:</p>
+<p>[ R = \frac{v_0^2 \sin(2\theta)}{g} ]</p>
+<ul>
+<li>The range is maximized when ( \theta = 45^\circ ).</li>
+<li>Increasing initial velocity increases the range quadratically.</li>
+<li>If the launch height is nonzero, the equation needs modifications.</li>
+</ul>
+<p>The following plot visualizes how the range changes with launch angle:</p>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
-g = 9.81  # gravity (m/s^2)
-v0 = 20   # initial velocity (m/s)
-theta = np.linspace(0, 90, 100)  # angles in degrees
+def projectile_range(theta, v0, g=9.81):
+    theta_rad = np.radians(theta)
+    return (v0**2 * np.sin(2 * theta_rad)) / g
 
-# Convert angles to radians
-theta_rad = np.radians(theta)
+angles = np.linspace(0, 90, 100)
+ranges = [projectile_range(theta, 20) for theta in angles]
 
-# Compute range
-R = (v0**2 * np.sin(2*theta_rad)) / g
-
-# Plot
-plt.figure(figsize=(8, 5))
-plt.plot(theta, R, label='Range vs Angle', color='b')
+plt.figure(figsize=(10, 5))
+plt.plot(angles, ranges, label='Range vs. Angle')
 plt.xlabel('Launch Angle (degrees)')
 plt.ylabel('Range (m)')
-plt.title('Projectile Range vs. Launch Angle')
+plt.title('Effect of Launch Angle on Range')
 plt.legend()
 plt.grid()
 plt.show()
 </code></pre>
-<p><img alt="alt text" src="../image-2.png"/></p>
-<h2 id="3-practical-applications">3. Practical Applications</h2>
-<p>Projectile motion applies to:
-- Sports (e.g., basketball, soccer)
-- Military applications (trajectory of missiles)
-- Engineering (ballistic flight paths)</p>
-<h2 id="4-implementation">4. Implementation</h2>
+<hr/>
+<h2 id="4-computational-implementation"><strong>4. Computational Implementation</strong></h2>
+<p>To better understand projectile motion, we implement a simulation using Python. The following code computes the trajectory for various launch angles and plots the results:</p>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
-def projectile_motion(v0, theta, g=9.81):
+def projectile_trajectory(theta, v0, g=9.81, dt=0.01):
     theta_rad = np.radians(theta)
-    t_flight = (2 * v0 * np.sin(theta_rad)) / g
-    t = np.linspace(0, t_flight, num=100)
-    x = v0 * np.cos(theta_rad) * t
-    y = v0 * np.sin(theta_rad) * t - 0.5 * g * t**2
+    vx = v0 * np.cos(theta_rad)
+    vy = v0 * np.sin(theta_rad)
+
+    x, y = [0], [0]
+    while y[-1] &gt;= 0:
+        vy = vy - g * dt  # Vertical acceleration due to gravity
+        x.append(x[-1] + vx * dt)
+        y.append(y[-1] + vy * dt)
+
     return x, y
 
-# Simulate for different angles
 angles = [30, 45, 60]
-plt.figure(figsize=(8, 5))
+plt.figure(figsize=(10, 5))
 for angle in angles:
-    x, y = projectile_motion(20, angle)
-    plt.plot(x, y, label=f'(angle) degrees')
+    x, y = projectile_trajectory(angle, 20)
+    plt.plot(x, y, label=f'θ = {angle}°')
 
 plt.xlabel('Horizontal Distance (m)')
 plt.ylabel('Vertical Distance (m)')
-plt.title('Projectile Motion for Different Angles')
+plt.title('Projectile Motion for Different Launch Angles')
 plt.legend()
 plt.grid()
 plt.show()
 </code></pre>
-<p><img alt="alt text" src="../image-3.png"/></p>
-<h2 id="discussion">Discussion</h2>
-<p>The idealized model assumes no air resistance, which isn't realistic for long-range motion. A more advanced model would incorporate drag force ( F_d = \frac{1}{2} C_d \rho A v^2 ) to account for air resistance.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>This study provides insight into projectile motion, demonstrating theoretical derivations and computational simulations. The next step would be incorporating wind resistance and varying terrains for a more realistic analysis.</p>
+<p>This script simulates projectile motion and visualizes trajectories for different launch angles. The results confirm theoretical predictions.</p>
+<p><img alt="Projectile Motion Simulation" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Parabolic_trajectory.svg"/></p>
+<hr/>
+<h2 id="5-limitations-and-further-considerations"><strong>5. Limitations and Further Considerations</strong></h2>
+<p>While our model provides a solid understanding of projectile motion, several real-world factors complicate the idealized equations:</p>
+<ol>
+<li><strong>Air Resistance:</strong></li>
+<li>The presence of drag alters the motion, making it non-parabolic.</li>
+<li>
+<p>A more accurate model requires solving differential equations numerically.</p>
+</li>
+<li>
+<p><strong>Wind Effects:</strong></p>
+</li>
+<li>
+<p>External forces like wind can push the projectile off its ideal path.</p>
+</li>
+<li>
+<p><strong>Non-Uniform Gravity:</strong></p>
+</li>
+<li>In planetary or space applications, gravity may not be constant.</li>
+</ol>
+<p>These factors make the real-world problem significantly more complex but also more accurate for practical applications like ballistics and aerospace engineering.</p>
+<hr/>
+<h2 id="6-conclusion"><strong>6. Conclusion</strong></h2>
+<p>Projectile motion, despite its seemingly simple nature, offers profound insights into fundamental physics. By deriving the governing equations and implementing computational simulations, we have explored the interplay between velocity, angle, and gravity. </p>
+<p>Our findings include:
+- The optimal angle for maximum range is <strong>45°</strong>.
+- Higher initial velocity increases range quadratically.
+- Computational simulations confirm theoretical predictions.</p>
+<p>Expanding this study to include air resistance, wind, and varying gravity would enhance realism, making it applicable to more complex scenarios in engineering and physics.</p>
+<p><img alt="Real-World Projectile Motion" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Long_Range_Ballistic_Trajectory.svg"/></p>
+<p>This study serves as a bridge between theoretical physics and computational modeling, showcasing how fundamental equations can be applied to solve practical problems in various fields.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">

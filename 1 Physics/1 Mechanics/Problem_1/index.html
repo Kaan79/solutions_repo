@@ -240,14 +240,14 @@
 <p>Projectile motion is governed by Newton’s laws of motion. To describe its behavior, we break it down into two components: <strong>horizontal motion</strong> and <strong>vertical motion</strong>.</p>
 <h3 id="21-horizontal-motion"><strong>2.1 Horizontal Motion</strong></h3>
 <p>The horizontal component of projectile motion is characterized by the absence of acceleration (assuming air resistance is negligible). The velocity in this direction remains constant:</p>
-<p>[ x = v_0 cos(theta) t ]</p>
+<div class="arithmatex">\[[ x = v_0 cos(theta) t ]\]</div>
 <p>where:
 - ( x ) is the horizontal displacement,
 - ( v_0 ) is the initial velocity,
 - ( theta ) is the launch angle,
 - ( t ) is the time elapsed.</p>
 <p>Since there is no horizontal acceleration:</p>
-<p>[ v_x = v_0 cos(theta) ]</p>
+<div class="arithmatex">\[[ v_x = v_0 cos(theta) ] \]</div>
 <p>This means the projectile maintains a constant horizontal velocity throughout its flight.</p>
 <pre><code class="language-python">def plot_horizontal_motion():
     time = np.linspace(0, 5, 100)
@@ -309,7 +309,8 @@ y = y0 + v0y * time - 0.5 * g * time**2
 
 # Plot vertical motion
 plt.figure(figsize=(8, 6))
-plt.plot(time, y, label=r'$y(t) = y_0 + v_{0y} t - \frac{1}{2} g t^2$', color='b')
+plt.plot(time, y, label=r( y(t) = y_0 + v_{0} t - frac{1}{2} g t^2 )
+, color='b')
 plt.axhline(0, color='gray', linestyle='--', linewidth=1)  # Ground level
 plt.xlabel("Time (s)")
 plt.ylabel("Vertical Position (m)")
@@ -353,9 +354,9 @@ plot_maximum_height()
 <p><img alt="alt text" src="../image-13.png"/></p>
 <h3 id="24-time-of-flight"><strong>2.4 Time of Flight</strong></h3>
 <p>The total time of flight ( T ) is found by setting ( y = 0 ):</p>
-<p>[ 0 = y_0 + v_0 sin(theta) T - \frac{1}{2} g T^2 ]</p>
+<div class="arithmatex">\[[ 0 = y_0 + v_0 sin(theta) T - \frac{1}{2} g T^2 ]\]</div>
 <p>Solving for ( T ), when launched from ground level (( y_0 = 0 )):</p>
-<p>[ T = frac{2 v_0 sin(theta)}{g} ]</p>
+<div class="arithmatex">\[[ T = frac{2 v_0 sin(theta)}{g} ]\]</div>
 <p>For nonzero initial height, a quadratic equation must be solved.</p>
 <hr/>
 <pre><code class="language-python">def plot_time_of_flight():
@@ -383,7 +384,7 @@ plot_time_of_flight()
 <p><img alt="alt text" src="../image-14.png"/></p>
 <h3 id="22-vertical-motion_1"><strong>2.2 Vertical Motion</strong></h3>
 <p>In contrast to horizontal motion, the vertical component is affected by gravitational acceleration (( g )), causing the projectile to slow down on the way up and speed up on the way down. The vertical position ( y ) at any time ( t ) is given by the kinematic equation:</p>
-<pre><code class="language-math">y = y_0 + v_0 sin(theta) t - \frac{1}{2} g t^2
+<pre><code class="language-math">$$y = y_0 + v_0 sin(theta) t - \frac{1}{2} g t^2$$
 </code></pre>
 <p>where:
 - ( y_0 ) is the initial height of the projectile,
@@ -440,13 +441,13 @@ plt.show()
 <h4 id="formula-derivation"><strong>Formula Derivation:</strong></h4>
 <ol>
 <li><strong>Time to Reach Max Height (( t_H ))</strong><br/>
-[
+<span class="arithmatex">\(<span class="arithmatex">\([
 t_H = frac{v_0 sin(theta)}{g}
-]</li>
+]\)</span>\)</span></li>
 <li><strong>Maximum Height (( H ))</strong><br/>
-[
+<span class="arithmatex">\(<span class="arithmatex">\([
 H = frac{(v_0 sin(theta))^2}{2g}
-]</li>
+]\)</span>\)</span></li>
 </ol>
 <h4 id="key-insights"><strong>Key Insights:</strong></h4>
 <ul>
@@ -574,7 +575,6 @@ plt.grid()
 plt.show()
 </code></pre>
 <h2 id="_2"><img alt="alt text" src="../image-8.png"/></h2>
-<p>Sure! Here is the detailed version in English:  </p>
 <hr/>
 <h2 id="5-limitations-and-further-considerations"><strong>5. Limitations and Further Considerations</strong></h2>
 <p>In the real world, idealized mathematical models do not always perfectly represent reality. When analyzing <strong>projectile motion</strong>, various external factors complicate the theoretical analysis. If these factors are not considered, significant errors can occur, especially in applications requiring high precision. Below are three major sources of <strong>real-world influences</strong> that affect projectile motion:  </p>
@@ -592,9 +592,9 @@ plt.show()
 <h3 id="lateral-deviation-wind-induced-drift"><strong>Lateral Deviation (Wind-Induced Drift)</strong></h3>
 <p>If the wind blows <strong>perpendicular</strong> to the projectile’s trajectory, it can push the projectile <strong>sideways</strong>, causing lateral displacement. This effect is significant in <strong>ballistics, sports physics, and aerospace engineering</strong>.  </p>
 <p>One way to estimate lateral drift is:<br/>
-[
+<span class="arithmatex">\(<span class="arithmatex">\([
 x_w = \frac{F_w}{m} t^2
-]
+]\)</span>\)</span>
 where:<br/>
 - ( x_w ) = lateral displacement due to wind (m),<br/>
 - ( F_w = C_d rho A v_w^2 / 2 ) is the wind force,<br/>
@@ -608,18 +608,18 @@ where:<br/>
 <h3 id="acceleration-or-deceleration-tailwind-and-headwind-effects"><strong>Acceleration or Deceleration (Tailwind and Headwind Effects)</strong></h3>
 <p>If the wind moves <strong>in the same direction</strong> as the projectile (<strong>tailwind</strong>), it increases the projectile’s <strong>effective initial velocity</strong>, resulting in a <strong>longer range</strong>. Conversely, if the wind moves <strong>opposite</strong> to the projectile (<strong>headwind</strong>), it slows it down, reducing range.  </p>
 <p>The effective launch velocity ( v_{text{eff}} ) can be expressed as:<br/>
-[
+<span class="arithmatex">\(<span class="arithmatex">\([
 v_{text{eff}} = v_0 pm v_w
-]<br/>
+]\)</span>\)</span> 
 where:<br/>
 - ( v_0 ) = initial velocity of the projectile (m/s),<br/>
 - ( v_w ) = wind velocity along the projectile’s motion (m/s),<br/>
 - The <strong>+ sign</strong> applies for tailwind (boosting the projectile),<br/>
 - The <strong>− sign</strong> applies for headwind (reducing the projectile’s speed).  </p>
 <p>The <strong>range equation</strong>, accounting for effective velocity, becomes:<br/>
-[
+<span class="arithmatex">\(<span class="arithmatex">\([
 R = frac{(v_0 pm v_w)^2 sin 2theta}{g}
-]<br/>
+]\)</span>\)</span> 
 where:<br/>
 - ( R ) = range of the projectile (m),<br/>
 - ( theta ) = launch angle (°),<br/>
@@ -628,16 +628,16 @@ where:<br/>
 <h3 id="atmospheric-fluctuations-air-density-temperature-and-pressure-effects"><strong>Atmospheric Fluctuations (Air Density, Temperature, and Pressure Effects)</strong></h3>
 <p>Changes in <strong>air density</strong> ( rho ) due to fluctuations in <strong>temperature, pressure, and humidity</strong> influence <strong>drag force</strong> ( F_d ), which modifies the projectile’s motion.  </p>
 <p>The drag force is given by:<br/>
-[
+<span class="arithmatex">\(<span class="arithmatex">\([
 F_d = frac{1}{2} C_d rho A v^2
-]<br/>
+]\)</span>\)</span><br/>
 where:<br/>
 - ( F_d ) = drag force (N),<br/>
 - ( v ) = velocity of the projectile relative to air (m/s).  </p>
 <p><strong>Air density variation</strong> follows the <strong>ideal gas law</strong>:<br/>
-[
+<span class="arithmatex">\(<span class="arithmatex">\([
 rho = frac{P}{R T}
-]<br/>
+]\)</span>\)</span> 
 where:<br/>
 - ( P ) = atmospheric pressure (Pa),<br/>
 - ( R ) = specific gas constant for air (~287 J/kg·K),<br/>

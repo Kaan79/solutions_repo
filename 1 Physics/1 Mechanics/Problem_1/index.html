@@ -233,22 +233,21 @@
 <div class="section" itemprop="articleBody">
 <h1 id="projectile-motion-a-theoretical-and-computational-study"><strong>Projectile Motion: A Theoretical and Computational Study</strong></h1>
 <h2 id="1-introduction"><strong>1. Introduction</strong></h2>
-<p>Projectile motion is a fundamental topic in classical mechanics that describes the motion of an object launched into the air, subject to gravitational acceleration. It plays a crucial role in understanding various real-world phenomena, from the trajectory of a thrown ball to the path of a rocket. The motion of a projectile can be decomposed into independent horizontal and vertical components, governed by well-established kinematic equations. These equations provide valuable insights into the relationship between velocity, acceleration, time, and displacement.</p>
-<p>This study aims to delve into the mathematical foundations of projectile motion, systematically deriving its governing equations from Newton’s laws of motion. By exploring the dependence of range, time of flight, and maximum height on initial launch conditions, we will demonstrate how these factors interact to shape the projectile’s path.</p>
-<p>Furthermore, we will analyze how variations in initial velocity, gravitational acceleration, and launch height influence the overall motion, leading to a diverse set of outcomes. A computational approach will be employed to simulate and visualize projectile trajectories, enabling a deeper understanding of the theoretical principles through numerical methods. By combining analytical derivations with computational techniques, we aim to bridge the gap between theoretical physics and real-world applications, demonstrating the practical significance of projectile motion across various disciplines, including sports, engineering, and astrophysics.</p>
+<p>Projectile motion is a key concept in classical mechanics, describing the motion of an object launched into the air under gravitational acceleration. It applies to various real-world scenarios, such as the path of a thrown ball or a rocket. The motion can be broken down into horizontal and vertical components, each governed by kinematic equations.</p>
+<p>This study will explore the mathematical foundations of projectile motion, deriving equations from Newton’s laws and examining how range, time of flight, and maximum height depend on initial conditions. We will also investigate how changes in initial velocity, gravity, and launch height affect the trajectory. A computational approach will be used to simulate and visualize these motions, providing insights into both theoretical and practical applications across fields like sports, engineering, and astrophysics.</p>
 <hr/>
 <h2 id="2-governing-equations-of-motion"><strong>2. Governing Equations of Motion</strong></h2>
 <p>Projectile motion is governed by Newton’s laws of motion. To describe its behavior, we break it down into two components: <strong>horizontal motion</strong> and <strong>vertical motion</strong>.</p>
 <h3 id="21-horizontal-motion"><strong>2.1 Horizontal Motion</strong></h3>
 <p>The horizontal component of projectile motion is characterized by the absence of acceleration (assuming air resistance is negligible). The velocity in this direction remains constant:</p>
-<p>[ x = v_0 \cos(\theta) t ]</p>
+<p>[ x = v_0 cos(theta) t ]</p>
 <p>where:
 - ( x ) is the horizontal displacement,
 - ( v_0 ) is the initial velocity,
-- ( \theta ) is the launch angle,
+- ( theta ) is the launch angle,
 - ( t ) is the time elapsed.</p>
 <p>Since there is no horizontal acceleration:</p>
-<p>[ v_x = v_0 \cos(\theta) ]</p>
+<p>[ v_x = v_0 cos(theta) ]</p>
 <p>This means the projectile maintains a constant horizontal velocity throughout its flight.</p>
 <pre><code class="language-python">def plot_horizontal_motion():
     time = np.linspace(0, 5, 100)
@@ -278,7 +277,7 @@ y(t) = y_0 + v_0 sin(theta) t - \frac{1}{2} g t^2
 \]</div>
 <p>Where:
 - ( y_0 ) is the initial height of the projectile,
-- ( v_0 \sin(\theta) ) is the vertical component of the initial velocity (the vertical velocity at ( t = 0 )),
+- ( v_0 sin(theta) ) is the vertical component of the initial velocity (the vertical velocity at ( t = 0 )),
 - ( g ) is the acceleration due to gravity (approximately <strong>9.81 m/s²</strong>).</p>
 <h3 id="vertical-velocity"><strong>Vertical Velocity</strong></h3>
 <p>The vertical velocity ( v_y(t) ) at any given time ( t ) is given by:</p>
@@ -323,11 +322,11 @@ plt.show()
 <p><img alt="alt text" src="../image-15.png"/></p>
 <h3 id="23-maximum-height"><strong>2.3 Maximum Height</strong></h3>
 <p>The projectile reaches its maximum height ( H ) when ( v_y = 0 ):</p>
-<p>[ 0 = v_0 \sin(\theta) - g t_H ]</p>
+<p>[ 0 = v_0 sin(theta) - g t_H ]</p>
 <p>Solving for ( t_H ) (time to reach maximum height):</p>
-<p>[ t_H = \frac{v_0 \sin(\theta)}{g} ]</p>
+<p>[ t_H = frac{v_0 sin(theta)}{g} ]</p>
 <p>Substituting this into the vertical displacement equation:</p>
-<p>[ H = \frac{(v_0 \sin(\theta))^2}{2g} ]</p>
+<p>[ H = frac{(v_0 sin(theta))^2}{2g} ]</p>
 <pre><code class="language-python">def plot_maximum_height():
     theta = np.radians(45)  # 45-degree launch
     v0 = 20  # Initial speed
@@ -354,9 +353,9 @@ plot_maximum_height()
 <p><img alt="alt text" src="../image-13.png"/></p>
 <h3 id="24-time-of-flight"><strong>2.4 Time of Flight</strong></h3>
 <p>The total time of flight ( T ) is found by setting ( y = 0 ):</p>
-<p>[ 0 = y_0 + v_0 \sin(\theta) T - \frac{1}{2} g T^2 ]</p>
+<p>[ 0 = y_0 + v_0 sin(theta) T - \frac{1}{2} g T^2 ]</p>
 <p>Solving for ( T ), when launched from ground level (( y_0 = 0 )):</p>
-<p>[ T = \frac{2 v_0 \sin(\theta)}{g} ]</p>
+<p>[ T = frac{2 v_0 sin(theta)}{g} ]</p>
 <p>For nonzero initial height, a quadratic equation must be solved.</p>
 <hr/>
 <pre><code class="language-python">def plot_time_of_flight():
@@ -388,7 +387,7 @@ plot_time_of_flight()
 </code></pre>
 <p>where:
 - ( y_0 ) is the initial height of the projectile,
-- ( v_0 \sin(\theta) ) is the initial vertical velocity component.</p>
+- ( v_0 sin(theta) ) is the initial vertical velocity component.</p>
 <p>The vertical velocity at any time ( t ) is:</p>
 <pre><code class="language-math">v_y = v_0 sin(theta) - g t
 </code></pre>
@@ -442,11 +441,11 @@ plt.show()
 <ol>
 <li><strong>Time to Reach Max Height (( t_H ))</strong><br/>
 [
-t_H = \frac{v_0 \sin(\theta)}{g}
+t_H = frac{v_0 sin(theta)}{g}
 ]</li>
 <li><strong>Maximum Height (( H ))</strong><br/>
 [
-H = \frac{(v_0 \sin(\theta))^2}{2g}
+H = frac{(v_0 sin(theta))^2}{2g}
 ]</li>
 </ol>
 <h4 id="key-insights"><strong>Key Insights:</strong></h4>
@@ -506,19 +505,19 @@ print(f"Time of Flight: {T:.2f} seconds")
 <p><img alt="alt text" src="../image-17.png"/></p>
 <h3 id="24-time-of-flight_1"><strong>2.4 Time of Flight</strong></h3>
 <p>The total time of flight ( T ) is found by setting ( y = 0 ):</p>
-<pre><code class="language-math">0 = y_0 + v_0 sin(theta) T - \frac{1}{2} g T^2
+<pre><code class="language-math">0 = y_0 + v_0 sin(theta) T - frac{1}{2} g T^2
 </code></pre>
 <p>Solving for ( T ), when launched from ground level (( y_0 = 0 )):</p>
-<pre><code class="language-math">T = \frac{2 v_0 sin(theta)}{g}
+<pre><code class="language-math">T = frac{2 v_0 sin(theta)}{g}
 </code></pre>
 <p>For nonzero initial height, a quadratic equation must be solved.</p>
 <hr/>
 <h2 id="3-analysis-of-range-dependence-on-launch-angle"><strong>3. Analysis of Range Dependence on Launch Angle</strong></h2>
 <p>The horizontal range ( R ) is given by:</p>
-<pre><code class="language-math">R = \frac{v_0^2 sin(2theta)}{g}
+<pre><code class="language-math">R = frac{v_0^2 sin(2theta)}{g}
 </code></pre>
 <ul>
-<li>The range is maximized when ( \theta = 45^\circ ).</li>
+<li>The range is maximized when ( theta = 45^circ ).</li>
 <li>Increasing initial velocity increases the range quadratically.</li>
 <li>If the launch height is nonzero, a more complex formula is required.</li>
 </ul>
@@ -598,19 +597,19 @@ x_w = \frac{F_w}{m} t^2
 ]
 where:<br/>
 - ( x_w ) = lateral displacement due to wind (m),<br/>
-- ( F_w = C_d \rho A v_w^2 / 2 ) is the wind force,<br/>
+- ( F_w = C_d rho A v_w^2 / 2 ) is the wind force,<br/>
 - ( C_d ) = drag coefficient,<br/>
-- ( \rho ) = air density (kg/m³),<br/>
+- ( rho ) = air density (kg/m³),<br/>
 - ( A ) = cross-sectional area of the projectile (m²),<br/>
 - ( v_w ) = wind velocity perpendicular to motion (m/s),<br/>
 - ( m ) = projectile mass (kg),<br/>
 - ( t ) = time of flight (s).  </p>
-<p>A strong <strong>crosswind</strong> (( v_w \neq 0 )) significantly affects the projectile's path, making trajectory corrections necessary.  </p>
+<p>A strong <strong>crosswind</strong> (( v_w neq 0 )) significantly affects the projectile's path, making trajectory corrections necessary.  </p>
 <h3 id="acceleration-or-deceleration-tailwind-and-headwind-effects"><strong>Acceleration or Deceleration (Tailwind and Headwind Effects)</strong></h3>
 <p>If the wind moves <strong>in the same direction</strong> as the projectile (<strong>tailwind</strong>), it increases the projectile’s <strong>effective initial velocity</strong>, resulting in a <strong>longer range</strong>. Conversely, if the wind moves <strong>opposite</strong> to the projectile (<strong>headwind</strong>), it slows it down, reducing range.  </p>
-<p>The effective launch velocity ( v_{\text{eff}} ) can be expressed as:<br/>
+<p>The effective launch velocity ( v_{text{eff}} ) can be expressed as:<br/>
 [
-v_{\text{eff}} = v_0 \pm v_w
+v_{text{eff}} = v_0 pm v_w
 ]<br/>
 where:<br/>
 - ( v_0 ) = initial velocity of the projectile (m/s),<br/>
@@ -619,25 +618,25 @@ where:<br/>
 - The <strong>− sign</strong> applies for headwind (reducing the projectile’s speed).  </p>
 <p>The <strong>range equation</strong>, accounting for effective velocity, becomes:<br/>
 [
-R = \frac{(v_0 \pm v_w)^2 \sin 2\theta}{g}
+R = frac{(v_0 pm v_w)^2 sin 2theta}{g}
 ]<br/>
 where:<br/>
 - ( R ) = range of the projectile (m),<br/>
-- ( \theta ) = launch angle (°),<br/>
+- ( theta ) = launch angle (°),<br/>
 - ( g ) = gravitational acceleration (9.81 m/s² on Earth).  </p>
 <p>If wind speed is substantial, adjustments must be made to the launch angle or velocity to maintain accuracy.  </p>
 <h3 id="atmospheric-fluctuations-air-density-temperature-and-pressure-effects"><strong>Atmospheric Fluctuations (Air Density, Temperature, and Pressure Effects)</strong></h3>
-<p>Changes in <strong>air density</strong> ( \rho ) due to fluctuations in <strong>temperature, pressure, and humidity</strong> influence <strong>drag force</strong> ( F_d ), which modifies the projectile’s motion.  </p>
+<p>Changes in <strong>air density</strong> ( rho ) due to fluctuations in <strong>temperature, pressure, and humidity</strong> influence <strong>drag force</strong> ( F_d ), which modifies the projectile’s motion.  </p>
 <p>The drag force is given by:<br/>
 [
-F_d = \frac{1}{2} C_d \rho A v^2
+F_d = frac{1}{2} C_d rho A v^2
 ]<br/>
 where:<br/>
 - ( F_d ) = drag force (N),<br/>
 - ( v ) = velocity of the projectile relative to air (m/s).  </p>
 <p><strong>Air density variation</strong> follows the <strong>ideal gas law</strong>:<br/>
 [
-\rho = \frac{P}{R T}
+rho = frac{P}{R T}
 ]<br/>
 where:<br/>
 - ( P ) = atmospheric pressure (Pa),<br/>

@@ -113,15 +113,15 @@ plt.show()
 ### **2.3 Maximum Height**
 The projectile reaches its maximum height ( H ) when ( v_y = 0 ):
 
-[ 0 = v_0 sin(theta) - g t_H ]
+$$[ 0 = v_0 sin(theta) - g t_H ]$$
 
 Solving for ( t_H ) (time to reach maximum height):
 
-[ t_H = frac{v_0 sin(theta)}{g} ]
+$$[ t_H = frac{v_0 sin(theta)}{g} ]$$
 
 Substituting this into the vertical displacement equation:
 
-[ H = frac{(v_0 sin(theta))^2}{2g} ]
+$$[ H = frac{(v_0 sin(theta))^2}{2g} ]$$
 
 ```python
 def plot_maximum_height():
@@ -192,7 +192,7 @@ plot_time_of_flight()
 In contrast to horizontal motion, the vertical component is affected by gravitational acceleration (( g )), causing the projectile to slow down on the way up and speed up on the way down. The vertical position ( y ) at any time ( t ) is given by the kinematic equation:
 
 ```math
-$$y = y_0 + v_0 sin(theta) t - \frac{1}{2} g t^2$$
+y = y_0 + v_0 sin(theta) t - \frac{1}{2} g t^2
 ```
 
 where:

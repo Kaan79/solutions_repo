@@ -1,11 +1,9 @@
 # **Projectile Motion: A Theoretical and Computational Study**
 
 ## **1. Introduction**
-Projectile motion is a fundamental topic in classical mechanics that describes the motion of an object launched into the air, subject to gravitational acceleration. It plays a crucial role in understanding various real-world phenomena, from the trajectory of a thrown ball to the path of a rocket. The motion of a projectile can be decomposed into independent horizontal and vertical components, governed by well-established kinematic equations. These equations provide valuable insights into the relationship between velocity, acceleration, time, and displacement.
+Projectile motion is a key concept in classical mechanics, describing the motion of an object launched into the air under gravitational acceleration. It applies to various real-world scenarios, such as the path of a thrown ball or a rocket. The motion can be broken down into horizontal and vertical components, each governed by kinematic equations.
 
-This study aims to delve into the mathematical foundations of projectile motion, systematically deriving its governing equations from Newton’s laws of motion. By exploring the dependence of range, time of flight, and maximum height on initial launch conditions, we will demonstrate how these factors interact to shape the projectile’s path.
-
-Furthermore, we will analyze how variations in initial velocity, gravitational acceleration, and launch height influence the overall motion, leading to a diverse set of outcomes. A computational approach will be employed to simulate and visualize projectile trajectories, enabling a deeper understanding of the theoretical principles through numerical methods. By combining analytical derivations with computational techniques, we aim to bridge the gap between theoretical physics and real-world applications, demonstrating the practical significance of projectile motion across various disciplines, including sports, engineering, and astrophysics.
+This study will explore the mathematical foundations of projectile motion, deriving equations from Newton’s laws and examining how range, time of flight, and maximum height depend on initial conditions. We will also investigate how changes in initial velocity, gravity, and launch height affect the trajectory. A computational approach will be used to simulate and visualize these motions, providing insights into both theoretical and practical applications across fields like sports, engineering, and astrophysics.
 
 ---
 
@@ -15,17 +13,17 @@ Projectile motion is governed by Newton’s laws of motion. To describe its beha
 ### **2.1 Horizontal Motion**
 The horizontal component of projectile motion is characterized by the absence of acceleration (assuming air resistance is negligible). The velocity in this direction remains constant:
 
-[ x = v_0 \cos(\theta) t ]
+[ x = v_0 cos(theta) t ]
 
 where:
 - ( x ) is the horizontal displacement,
 - ( v_0 ) is the initial velocity,
-- ( \theta ) is the launch angle,
+- ( theta ) is the launch angle,
 - ( t ) is the time elapsed.
 
 Since there is no horizontal acceleration:
 
-[ v_x = v_0 \cos(\theta) ]
+[ v_x = v_0 cos(theta) ]
 
 This means the projectile maintains a constant horizontal velocity throughout its flight.
 ```python
@@ -63,7 +61,7 @@ $$
 
 Where:
 - ( y_0 ) is the initial height of the projectile,
-- ( v_0 \sin(\theta) ) is the vertical component of the initial velocity (the vertical velocity at ( t = 0 )),
+- ( v_0 sin(theta) ) is the vertical component of the initial velocity (the vertical velocity at ( t = 0 )),
 - ( g ) is the acceleration due to gravity (approximately **9.81 m/s²**).
 
 ### **Vertical Velocity**
@@ -114,15 +112,15 @@ plt.show()
 ### **2.3 Maximum Height**
 The projectile reaches its maximum height ( H ) when ( v_y = 0 ):
 
-[ 0 = v_0 \sin(\theta) - g t_H ]
+[ 0 = v_0 sin(theta) - g t_H ]
 
 Solving for ( t_H ) (time to reach maximum height):
 
-[ t_H = \frac{v_0 \sin(\theta)}{g} ]
+[ t_H = frac{v_0 sin(theta)}{g} ]
 
 Substituting this into the vertical displacement equation:
 
-[ H = \frac{(v_0 \sin(\theta))^2}{2g} ]
+[ H = frac{(v_0 sin(theta))^2}{2g} ]
 
 ```python
 def plot_maximum_height():
@@ -153,11 +151,11 @@ plot_maximum_height()
 ### **2.4 Time of Flight**
 The total time of flight ( T ) is found by setting ( y = 0 ):
 
-[ 0 = y_0 + v_0 \sin(\theta) T - \frac{1}{2} g T^2 ]
+[ 0 = y_0 + v_0 sin(theta) T - \frac{1}{2} g T^2 ]
 
 Solving for ( T ), when launched from ground level (( y_0 = 0 )):
 
-[ T = \frac{2 v_0 \sin(\theta)}{g} ]
+[ T = frac{2 v_0 sin(theta)}{g} ]
 
 For nonzero initial height, a quadratic equation must be solved.
 
@@ -198,7 +196,7 @@ y = y_0 + v_0 sin(theta) t - \frac{1}{2} g t^2
 
 where:
 - ( y_0 ) is the initial height of the projectile,
-- ( v_0 \sin(\theta) ) is the initial vertical velocity component.
+- ( v_0 sin(theta) ) is the initial vertical velocity component.
 
 The vertical velocity at any time ( t ) is:
 
@@ -257,11 +255,11 @@ The **maximum height (H)** is the highest point a projectile reaches when its ve
 #### **Formula Derivation:**  
 1. **Time to Reach Max Height (( t_H ))**  
 [
-t_H = \frac{v_0 \sin(\theta)}{g}
+t_H = frac{v_0 sin(theta)}{g}
 ]
 2. **Maximum Height (( H ))**  
 [
-H = \frac{(v_0 \sin(\theta))^2}{2g}
+H = frac{(v_0 sin(theta))^2}{2g}
 ]
 
 #### **Key Insights:**  
@@ -326,13 +324,13 @@ print(f"Time of Flight: {T:.2f} seconds")
 The total time of flight ( T ) is found by setting ( y = 0 ):
 
 ```math
-0 = y_0 + v_0 sin(theta) T - \frac{1}{2} g T^2
+0 = y_0 + v_0 sin(theta) T - frac{1}{2} g T^2
 ```
 
 Solving for ( T ), when launched from ground level (( y_0 = 0 )):
 
 ```math
-T = \frac{2 v_0 sin(theta)}{g}
+T = frac{2 v_0 sin(theta)}{g}
 ```
 
 For nonzero initial height, a quadratic equation must be solved.
@@ -343,10 +341,10 @@ For nonzero initial height, a quadratic equation must be solved.
 The horizontal range ( R ) is given by:
 
 ```math
-R = \frac{v_0^2 sin(2theta)}{g}
+R = frac{v_0^2 sin(2theta)}{g}
 ```
 
-- The range is maximized when ( \theta = 45^\circ ).
+- The range is maximized when ( theta = 45^circ ).
 - Increasing initial velocity increases the range quadratically.
 - If the launch height is nonzero, a more complex formula is required.
 
@@ -442,22 +440,22 @@ x_w = \frac{F_w}{m} t^2
 ]
 where:  
 - ( x_w ) = lateral displacement due to wind (m),  
-- ( F_w = C_d \rho A v_w^2 / 2 ) is the wind force,  
+- ( F_w = C_d rho A v_w^2 / 2 ) is the wind force,  
 - ( C_d ) = drag coefficient,  
-- ( \rho ) = air density (kg/m³),  
+- ( rho ) = air density (kg/m³),  
 - ( A ) = cross-sectional area of the projectile (m²),  
 - ( v_w ) = wind velocity perpendicular to motion (m/s),  
 - ( m ) = projectile mass (kg),  
 - ( t ) = time of flight (s).  
 
-A strong **crosswind** (( v_w \neq 0 )) significantly affects the projectile's path, making trajectory corrections necessary.  
+A strong **crosswind** (( v_w neq 0 )) significantly affects the projectile's path, making trajectory corrections necessary.  
 
 ### **Acceleration or Deceleration (Tailwind and Headwind Effects)**  
 If the wind moves **in the same direction** as the projectile (**tailwind**), it increases the projectile’s **effective initial velocity**, resulting in a **longer range**. Conversely, if the wind moves **opposite** to the projectile (**headwind**), it slows it down, reducing range.  
 
-The effective launch velocity ( v_{\text{eff}} ) can be expressed as:  
+The effective launch velocity ( v_{text{eff}} ) can be expressed as:  
 [
-v_{\text{eff}} = v_0 \pm v_w
+v_{text{eff}} = v_0 pm v_w
 ]  
 where:  
 - ( v_0 ) = initial velocity of the projectile (m/s),  
@@ -467,21 +465,21 @@ where:
 
 The **range equation**, accounting for effective velocity, becomes:  
 [
-R = \frac{(v_0 \pm v_w)^2 \sin 2\theta}{g}
+R = frac{(v_0 pm v_w)^2 sin 2theta}{g}
 ]  
 where:  
 - ( R ) = range of the projectile (m),  
-- ( \theta ) = launch angle (°),  
+- ( theta ) = launch angle (°),  
 - ( g ) = gravitational acceleration (9.81 m/s² on Earth).  
 
 If wind speed is substantial, adjustments must be made to the launch angle or velocity to maintain accuracy.  
 
 ### **Atmospheric Fluctuations (Air Density, Temperature, and Pressure Effects)**  
-Changes in **air density** ( \rho ) due to fluctuations in **temperature, pressure, and humidity** influence **drag force** ( F_d ), which modifies the projectile’s motion.  
+Changes in **air density** ( rho ) due to fluctuations in **temperature, pressure, and humidity** influence **drag force** ( F_d ), which modifies the projectile’s motion.  
 
 The drag force is given by:  
 [
-F_d = \frac{1}{2} C_d \rho A v^2
+F_d = frac{1}{2} C_d rho A v^2
 ]  
 where:  
 - ( F_d ) = drag force (N),  
@@ -489,7 +487,7 @@ where:
 
 **Air density variation** follows the **ideal gas law**:  
 [
-\rho = \frac{P}{R T}
+rho = frac{P}{R T}
 ]  
 where:  
 - ( P ) = atmospheric pressure (Pa),  

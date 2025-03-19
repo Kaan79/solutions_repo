@@ -28,6 +28,7 @@ Since there is no horizontal acceleration:
 [ v_x = v_0 \cos(\theta) ]
 
 This means the projectile maintains a constant horizontal velocity throughout its flight.
+```python
 def plot_horizontal_motion():
     time = np.linspace(0, 5, 100)
     x = 5 * time  # Constant velocity motion
@@ -43,6 +44,7 @@ def plot_horizontal_motion():
     plt.show()
 
 plot_horizontal_motion()
+```
 ![alt text](image-11.png)
 
 ### **2.2 Vertical Motion**
@@ -72,6 +74,7 @@ v_y(t) = v_0 sin(theta) - g t
 $$
 
 This equation shows that at the start of the motion, the vertical velocity is positive (the object moves upward), but as time progresses, gravity slows down the upward motion. Once the projectile reaches its maximum height, the vertical velocity becomes zero. After that, gravity causes the projectile to accelerate downward.
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -105,6 +108,7 @@ plt.title("Vertical Motion of a Projectile")
 plt.legend()
 plt.grid()
 plt.show()
+```
 ---
 ![alt text](image-15.png)
 ### **2.3 Maximum Height**
@@ -119,6 +123,8 @@ Solving for ( t_H ) (time to reach maximum height):
 Substituting this into the vertical displacement equation:
 
 [ H = \frac{(v_0 \sin(\theta))^2}{2g} ]
+
+```python
 def plot_maximum_height():
     theta = np.radians(45)  # 45-degree launch
     v0 = 20  # Initial speed
@@ -141,6 +147,7 @@ def plot_maximum_height():
     plt.show()
 
 plot_maximum_height()
+```
 ![alt text](image-13.png)
 
 ### **2.4 Time of Flight**
@@ -155,6 +162,7 @@ Solving for ( T ), when launched from ground level (( y_0 = 0 )):
 For nonzero initial height, a quadratic equation must be solved.
 
 ---
+```python
 def plot_time_of_flight():
     v0 = 20
     theta = np.radians(45)
@@ -176,12 +184,13 @@ def plot_time_of_flight():
     plt.show()
 
 plot_time_of_flight()
+```
 ![alt text](image-14.png)
 
 ## **3. Analysis of Range Dependence on Launch Angle**
 The horizontal range ( R ) is given by:
 
-[ R = frac{v_0^2 sin(2\theta)}{g} ]
+[ R = frac{v_0^2 sin(2 theta)}{g} ]
 
 - The range is maximized when ( theta = 45^circ ).
 - Increasing initial velocity increases the range quadratically.
@@ -208,11 +217,9 @@ plt.title('Effect of Launch Angle on Range')
 plt.legend()
 plt.grid()
 plt.show()
-```
+``` 
 ![alt text](image-10.png)
 ---
-
-```
 
 This means the projectile maintains a constant horizontal velocity throughout its flight.
 
@@ -231,26 +238,123 @@ The vertical velocity at any time ( t ) is:
 
 ```math
 v_y = v_0 sin(theta) - g t
+``` 
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Given values
+g = 9.81  # Gravity (m/s²)
+v0 = 30  # Initial velocity (m/s)
+theta = np.radians(45)  # Launch angle
+y0 = 0  # Initial height (can be adjusted)
+
+# Time of flight
+T = (2 * v0 * np.sin(theta)) / g
+
+# Time values
+t = np.linspace(0, T, num=500)
+
+# Vertical position y(t)
+y = y0 + v0 * np.sin(theta) * t - 0.5 * g * t**2
+
+# Vertical velocity v_y(t)
+v_y = v0 * np.sin(theta) - g * t
+
+# Plot vertical position (y) vs time
+plt.figure(figsize=(10, 5))
+plt.subplot(1, 2, 1)
+plt.plot(t, y, label="Vertical Position (y)", color='b')
+plt.xlabel("Time (s)")
+plt.ylabel("Height (m)")
+plt.title("Vertical Position vs Time")
+plt.grid(True)
+
+# Plot vertical velocity (v_y) vs time
+plt.subplot(1, 2, 2)
+plt.plot(t, v_y, label="Vertical Velocity (v_y)", color='g')
+plt.xlabel("Time (s)")
+plt.ylabel("Velocity (m/s)")
+plt.title("Vertical Velocity vs Time")
+plt.grid(True)
+
+# Show the plots
+plt.tight_layout()
+plt.show()
 ```
+![alt text](image-18.png)
 
 ### **2.3 Maximum Height**
-The projectile reaches its maximum height ( H ) when ( v_y = 0 ):
+### ** Maximum Height in Projectile Motion**  
+The **maximum height (H)** is the highest point a projectile reaches when its vertical velocity becomes **zero**.  
 
-```math
-0 = v_0 sin(theta) - g t_H
-```
-
-Solving for ( t_H ) (time to reach maximum height):
-
-```math
+#### **Formula Derivation:**  
+1. **Time to Reach Max Height (( t_H ))**  
+[
 t_H = \frac{v_0 \sin(\theta)}{g}
-```
+]
+2. **Maximum Height (( H ))**  
+[
+H = \frac{(v_0 \sin(\theta))^2}{2g}
+]
 
-Substituting this into the vertical displacement equation:
+#### **Key Insights:**  
+- **Higher ( v_0 ) → Greater Height** (H ∝ ( v_0^2 )).  
+- **Larger ( theta ) → More height, less range**.  
+- **Lower gravity (e.g., Moon) → Higher peak**.
 
-```math
-H = \frac{(v_0 sin(theta))^2}{2g}
+---
+
+### ** Python Code for Graphing Maximum Height**
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Given values
+g = 9.81  # Gravity (m/s²)
+v0 = 30  # Initial velocity (m/s)
+theta = np.radians(45)  # Launch angle
+
+# Time to reach max height
+t_H = (v0 * np.sin(theta)) / g
+
+# Maximum height
+H = (v0**2 * np.sin(theta)**2) / (2 * g)
+
+# Time of flight
+T = (2 * v0 * np.sin(theta)) / g
+
+# Generate time values for the full flight
+t = np.linspace(0, T, num=500)
+
+# Calculate x and y values for projectile motion
+x = v0 * np.cos(theta) * t
+y = v0 * np.sin(theta) * t - 0.5 * g * t**2
+
+# Plot the projectile path
+plt.plot(x, y, label="Projectile Path", color='b')
+
+# Mark maximum height on the plot
+plt.scatter(v0 * np.cos(theta) * t_H, H, color='r', label="Max Height", zorder=3)
+
+# Add a dashed line for the maximum height
+plt.axhline(H, linestyle="dashed", color='r', alpha=0.7)
+
+# Add labels, title, and grid
+plt.xlabel("Distance (m)")
+plt.ylabel("Height (m)")
+plt.title("Projectile Motion")
+plt.legend()
+plt.grid()
+
+# Show the plot
+plt.show()
+
+# Output time of flight
+print(f"Time of Flight: {T:.2f} seconds")
 ```
+![alt text](image-17.png)
+
 
 ### **2.4 Time of Flight**
 The total time of flight ( T ) is found by setting ( y = 0 ):

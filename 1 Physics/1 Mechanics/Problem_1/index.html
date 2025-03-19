@@ -323,11 +323,11 @@ plt.show()
 <p><img alt="alt text" src="../image-15.png"/></p>
 <h3 id="23-maximum-height"><strong>2.3 Maximum Height</strong></h3>
 <p>The projectile reaches its maximum height ( H ) when ( v_y = 0 ):</p>
-<p>[ 0 = v_0 sin(theta) - g t_H ]</p>
+<div class="arithmatex">\[[ 0 = v_0 sin(theta) - g t_H ]\]</div>
 <p>Solving for ( t_H ) (time to reach maximum height):</p>
-<p>[ t_H = frac{v_0 sin(theta)}{g} ]</p>
+<div class="arithmatex">\[[ t_H = frac{v_0 sin(theta)}{g} ]\]</div>
 <p>Substituting this into the vertical displacement equation:</p>
-<p>[ H = frac{(v_0 sin(theta))^2}{2g} ]</p>
+<div class="arithmatex">\[[ H = frac{(v_0 sin(theta))^2}{2g} ]\]</div>
 <pre><code class="language-python">def plot_maximum_height():
     theta = np.radians(45)  # 45-degree launch
     v0 = 20  # Initial speed
@@ -384,7 +384,7 @@ plot_time_of_flight()
 <p><img alt="alt text" src="../image-14.png"/></p>
 <h3 id="22-vertical-motion_1"><strong>2.2 Vertical Motion</strong></h3>
 <p>In contrast to horizontal motion, the vertical component is affected by gravitational acceleration (( g )), causing the projectile to slow down on the way up and speed up on the way down. The vertical position ( y ) at any time ( t ) is given by the kinematic equation:</p>
-<pre><code class="language-math">$$y = y_0 + v_0 sin(theta) t - \frac{1}{2} g t^2$$
+<pre><code class="language-math">y = y_0 + v_0 sin(theta) t - \frac{1}{2} g t^2
 </code></pre>
 <p>where:
 - ( y_0 ) is the initial height of the projectile,

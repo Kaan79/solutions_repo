@@ -64,12 +64,6 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#24-time-of-flight">2.4 Time of Flight</a>
 </li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#3-analysis-of-range-dependence-on-launch-angle">3. Analysis of Range Dependence on Launch Angle</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#_1"></a>
-<ul>
 <li class="toctree-l4"><a class="reference internal" href="#22-vertical-motion_1">2.2 Vertical Motion</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#23-maximum-height_1">2.3 Maximum Height</a>
@@ -82,13 +76,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#3-analysis-of-range-dependence-on-launch-angle_1">3. Analysis of Range Dependence on Launch Angle</a>
+<li class="toctree-l3"><a class="reference internal" href="#3-analysis-of-range-dependence-on-launch-angle">3. Analysis of Range Dependence on Launch Angle</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#_2"></a>
+<li class="toctree-l3"><a class="reference internal" href="#_1"></a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#4-computational-implementation">4. Computational Implementation</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#_3"></a>
+<li class="toctree-l3"><a class="reference internal" href="#_2"></a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#5-limitations-and-further-considerations">5. Limitations and Further Considerations</a>
 <ul>
@@ -96,7 +90,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#2-wind-effects-and-atmospheric-variability">2. Wind Effects and Atmospheric Variability</a>
+<li class="toctree-l3"><a class="reference internal" href="#6-wind-effects-and-atmospheric-variability">6. Wind Effects and Atmospheric Variability</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#lateral-deviation-wind-induced-drift">Lateral Deviation (Wind-Induced Drift)</a>
 </li>
@@ -112,7 +106,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#6-conclusion">6. Conclusion</a>
+<li class="toctree-l3"><a class="reference internal" href="#7-conclusion">7. Conclusion</a>
 </li>
 </ul>
 </li>
@@ -388,36 +382,6 @@ plot_maximum_height()
 plot_time_of_flight()
 </code></pre>
 <p><img alt="alt text" src="../image-14.png"/></p>
-<h2 id="3-analysis-of-range-dependence-on-launch-angle"><strong>3. Analysis of Range Dependence on Launch Angle</strong></h2>
-<p>The horizontal range ( R ) is given by:</p>
-<p>[ R = frac{v_0^2 sin(2 theta)}{g} ]</p>
-<ul>
-<li>The range is maximized when ( theta = 45^circ ).</li>
-<li>Increasing initial velocity increases the range quadratically.</li>
-<li>If the launch height is nonzero, a more complex formula is required.</li>
-</ul>
-<p>The following Python code simulates the effect of launch angle on range:</p>
-<pre><code class="language-python">import numpy as np
-import matplotlib.pyplot as plt
-
-def projectile_range(theta, v0, g=9.81):
-    theta_rad = np.radians(theta)
-    return (v0**2 * np.sin(2 * theta_rad)) / g
-
-angles = np.linspace(0, 90, 100)
-ranges = [projectile_range(theta, 20) for theta in angles]
-
-plt.figure(figsize=(10, 5))
-plt.plot(angles, ranges, label='Range vs. Angle')
-plt.xlabel('Launch Angle (degrees)')
-plt.ylabel('Range (m)')
-plt.title('Effect of Launch Angle on Range')
-plt.legend()
-plt.grid()
-plt.show()
-</code></pre>
-<h2 id="_1"><img alt="alt text" src="../image-10.png"/></h2>
-<p>This means the projectile maintains a constant horizontal velocity throughout its flight.</p>
 <h3 id="22-vertical-motion_1"><strong>2.2 Vertical Motion</strong></h3>
 <p>In contrast to horizontal motion, the vertical component is affected by gravitational acceleration (( g )), causing the projectile to slow down on the way up and speed up on the way down. The vertical position ( y ) at any time ( t ) is given by the kinematic equation:</p>
 <pre><code class="language-math">y = y_0 + v_0 sin(theta) t - \frac{1}{2} g t^2
@@ -549,7 +513,7 @@ print(f"Time of Flight: {T:.2f} seconds")
 </code></pre>
 <p>For nonzero initial height, a quadratic equation must be solved.</p>
 <hr/>
-<h2 id="3-analysis-of-range-dependence-on-launch-angle_1"><strong>3. Analysis of Range Dependence on Launch Angle</strong></h2>
+<h2 id="3-analysis-of-range-dependence-on-launch-angle"><strong>3. Analysis of Range Dependence on Launch Angle</strong></h2>
 <p>The horizontal range ( R ) is given by:</p>
 <pre><code class="language-math">R = \frac{v_0^2 sin(2theta)}{g}
 </code></pre>
@@ -578,7 +542,7 @@ plt.legend()
 plt.grid()
 plt.show()
 </code></pre>
-<h2 id="_2"><img alt="alt text" src="../image-9.png"/></h2>
+<h2 id="_1"><img alt="alt text" src="../image-9.png"/></h2>
 <h2 id="4-computational-implementation"><strong>4. Computational Implementation</strong></h2>
 <p>A computational approach is useful to visualize projectile motion. The following script simulates projectile motion for different launch angles:</p>
 <pre><code class="language-python">import numpy as np
@@ -610,7 +574,7 @@ plt.legend()
 plt.grid()
 plt.show()
 </code></pre>
-<h2 id="_3"><img alt="alt text" src="../image-8.png"/></h2>
+<h2 id="_2"><img alt="alt text" src="../image-8.png"/></h2>
 <p>Sure! Here is the detailed version in English:  </p>
 <hr/>
 <h2 id="5-limitations-and-further-considerations"><strong>5. Limitations and Further Considerations</strong></h2>
@@ -624,7 +588,7 @@ plt.show()
 <li><strong>Laminar vs. turbulent flow</strong>: The airflow around the projectile can transition from smooth (laminar) to chaotic (turbulent), significantly altering the aerodynamic forces. The <strong>Reynolds number</strong> is an essential parameter in determining whether airflow is turbulent.  </li>
 </ul>
 <p>These factors must be considered, especially for long-range projectiles or high-speed objects. More accurate modeling involves using <strong>Navier-Stokes equations</strong> or empirical drag force models.  </p>
-<h2 id="2-wind-effects-and-atmospheric-variability"><strong>2. Wind Effects and Atmospheric Variability</strong></h2>
+<h2 id="6-wind-effects-and-atmospheric-variability"><strong>6. Wind Effects and Atmospheric Variability</strong></h2>
 <p>Moving air masses (wind) influence both the <strong>horizontal</strong> and <strong>vertical</strong> components of projectile motion. Unlike an idealized case where a projectile moves in still air, real-world atmospheric conditions introduce additional forces that modify the trajectory. These effects can be categorized as follows:  </p>
 <h3 id="lateral-deviation-wind-induced-drift"><strong>Lateral Deviation (Wind-Induced Drift)</strong></h3>
 <p>If the wind blows <strong>perpendicular</strong> to the projectile’s trajectory, it can push the projectile <strong>sideways</strong>, causing lateral displacement. This effect is significant in <strong>ballistics, sports physics, and aerospace engineering</strong>.  </p>
@@ -742,7 +706,7 @@ plt.show()
 ---
 </code></pre>
 <p><img alt="alt text" src="../image-16.png"/></p>
-<h2 id="6-conclusion"><strong>6. Conclusion</strong></h2>
+<h2 id="7-conclusion"><strong>7. Conclusion</strong></h2>
 <p>The study of <strong>projectile motion</strong> offers valuable insights into fundamental physics, providing a clear understanding of motion under the influence of gravity. Through analytical and computational approaches, several key findings have been established:  </p>
 <ul>
 <li><strong>Optimal launch angle for maximum range</strong>: In an ideal vacuum with no external forces, the maximum horizontal distance is achieved at an angle of <strong>45°</strong>. However, in real-world conditions, factors such as air resistance and varying gravitational effects may shift this optimal angle.  </li>

@@ -161,6 +161,7 @@ $$[ T = frac{2 v_0 sin(theta)}{g} ]$$
 For nonzero initial height, a quadratic equation must be solved.
 
 ---
+
 ```python
 def plot_time_of_flight():
     v0 = 20
@@ -184,6 +185,7 @@ def plot_time_of_flight():
 
 plot_time_of_flight()
 ```
+
 ![alt text](image-14.png)
 
 
@@ -316,7 +318,7 @@ plt.grid()
 plt.show()
 
 # Output time of flight 
-print(f"Time of Flight: {T:.2f} seconds")
+print(f"Time of Flight: (T:.2f) seconds")
 ```
 ![alt text](image-17.png)
 
@@ -473,6 +475,8 @@ where:
 - ( g ) = gravitational acceleration (9.81 m/s² on Earth).  
 
 If wind speed is substantial, adjustments must be made to the launch angle or velocity to maintain accuracy.  
+
+![alt text](image-19.png)
 
 ### **Atmospheric Fluctuations (Air Density, Temperature, and Pressure Effects)**  
 Changes in **air density** ( rho ) due to fluctuations in **temperature, pressure, and humidity** influence **drag force** ( F_d ), which modifies the projectile’s motion.  

@@ -8,14 +8,19 @@ This study will explore the mathematical foundations of projectile motion, deriv
 ---
 
 ## **2. Governing Equations of Motion**
+
 Projectile motion is governed by Newton’s laws of motion. To describe its behavior, we break it down into two components: **horizontal motion** and **vertical motion**.
 
 ### **2.1 Horizontal Motion**
+
 The horizontal component of projectile motion is characterized by the absence of acceleration (assuming air resistance is negligible). The velocity in this direction remains constant:
 
-$$[ x = v_0 cos(theta) t ]$$
+$$
+x = v_0 cos(theta) t
+$$
 
 where:
+
 - ( x ) is the horizontal displacement,
 - ( v_0 ) is the initial velocity,
 - ( theta ) is the launch angle,
@@ -23,7 +28,9 @@ where:
 
 Since there is no horizontal acceleration:
 
-$$[ v_x = v_0 cos(theta) ] $$
+$$
+v_x = v_0 cos(theta)
+$$
 
 This means the projectile maintains a constant horizontal velocity throughout its flight.
 ```python

@@ -240,14 +240,20 @@
 <p>Projectile motion is governed by Newton’s laws of motion. To describe its behavior, we break it down into two components: <strong>horizontal motion</strong> and <strong>vertical motion</strong>.</p>
 <h3 id="21-horizontal-motion"><strong>2.1 Horizontal Motion</strong></h3>
 <p>The horizontal component of projectile motion is characterized by the absence of acceleration (assuming air resistance is negligible). The velocity in this direction remains constant:</p>
-<div class="arithmatex">\[[ x = v_0 cos(theta) t ]\]</div>
-<p>where:
-- ( x ) is the horizontal displacement,
-- ( v_0 ) is the initial velocity,
-- ( theta ) is the launch angle,
-- ( t ) is the time elapsed.</p>
+<div class="arithmatex">\[
+x = v_0 cos(theta) t
+\]</div>
+<p>where:</p>
+<ul>
+<li>( x ) is the horizontal displacement,</li>
+<li>( v_0 ) is the initial velocity,</li>
+<li>( theta ) is the launch angle,</li>
+<li>( t ) is the time elapsed.</li>
+</ul>
 <p>Since there is no horizontal acceleration:</p>
-<div class="arithmatex">\[[ v_x = v_0 cos(theta) ] \]</div>
+<div class="arithmatex">\[
+v_x = v_0 cos(theta)
+\]</div>
 <p>This means the projectile maintains a constant horizontal velocity throughout its flight.</p>
 <pre><code class="language-python">def plot_horizontal_motion():
     time = np.linspace(0, 5, 100)

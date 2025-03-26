@@ -218,7 +218,7 @@ $$
 
 - The system’s response is highly sensitive to the driving frequency.
 - At certain frequencies, **resonance** occurs where amplitude grows significantly.
-- Tuning ( \omega ) near ( \omega_0 ) results in large-amplitude oscillations.
+- Tuning ( omega ) near ( omega_0 ) results in large-amplitude oscillations.
 
 ---
 
@@ -228,10 +228,10 @@ Depending on parameter values, the system can exhibit:
 
 #### 1. **Periodic Motion**
 
-Periodic motion occurs when the pendulum returns to the same state after a fixed time interval \( T \), which is typically equal to the period of the external driving force:
+Periodic motion occurs when the pendulum returns to the same state after a fixed time interval ( T ), which is typically equal to the period of the external driving force:
 
 $$
-\theta(t + T) = \theta(t), \quad \dot{\theta}(t + T) = \dot{\theta}(t)
+theta(t + T) = theta(t), quad \dot{theta}(t + T) = \dot{theta}(t)
 $$
 
 This behavior indicates synchronization between the system's response and the periodic input. Such motion is characterized by:
@@ -310,10 +310,10 @@ $$
 
 Chaos is one of the most intriguing phenomena in nonlinear dynamics. In a chaotic system, the evolution is **deterministic**—meaning it follows a well-defined rule—but still **unpredictable in the long term**, due to extreme sensitivity to initial conditions.
 
-For the **forced damped pendulum**, chaotic motion can occur when the driving amplitude \( A \) or frequency \( \omega \) reach certain critical values. The governing nonlinear differential equation is:
+For the **forced damped pendulum**, chaotic motion can occur when the driving amplitude ( A ) or frequency ( \omega ) reach certain critical values. The governing nonlinear differential equation is:
 
 $$
-\frac{d^2\theta}{dt^2} + \beta \frac{d\theta}{dt} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)
+\frac{d^2theta}{dt^2} + beta \frac{dtheta}{dt} + \frac{g}{L} sin(theta) = A cos(omega t)
 $$
 
 In the chaotic regime:
@@ -609,59 +609,6 @@ plt.show()
 ```
 ![alt text](image-20.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 4. Implementation: Python Simulation
 
 To numerically study the behavior of a **forced damped pendulum**, we implement a simulation using Python. Due to the nonlinearity of the governing equation, analytical solutions are generally not available, especially when the amplitude of oscillation is large. Therefore, we employ numerical integration techniques such as the **Runge-Kutta method** (via `scipy.integrate.solve_ivp`) to approximate the system's evolution over time.
@@ -678,8 +625,8 @@ $$
 
 Where:
 
-- ( \theta(t) ) is the angular displacement (in radians),
-- ( \beta ) is the damping coefficient,
+- ( theta(t) ) is the angular displacement (in radians),
+- ( beta ) is the damping coefficient,
 - ( g ) is the gravitational acceleration,
 - ( L ) is the length of the pendulum,
 - ( A ) is the amplitude of the external periodic force,
@@ -689,8 +636,8 @@ We reduce this second-order ODE to a system of two first-order equations:
 
 Let:
 
-- ( \theta_1 = \theta )
-- ( \theta_2 = \frac{d\theta}{dt} )
+- ( theta_1 = theta )
+- ( theta_2 = \frac{dtheta}{dt} )
 
 Then:
 
@@ -731,11 +678,12 @@ def forced_damped_pendulum(t, y):
     return [dtheta_dt, domega_dt]
 $$
 # Initial conditions
-$$
-y0 = [0.2, 0.0]  # [initial angle (rad), initial angular velocity (rad/s)]
+
+ ```phyton
+ y0 = [0.2, 0.0]  # [initial angle (rad), initial angular velocity (rad/s)]
 t_span = (0, 20)
 t_eval = np.linspace(t_span[0], t_span[1], 1000)
-$$
+ ``` 
 
 # Numerical solution
 $$
@@ -794,17 +742,6 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 ```
-
-
-
-
-
-
-
-
-
-
-
 
 ## 6. Conclusions and Insights
 

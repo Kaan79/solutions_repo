@@ -334,15 +334,15 @@ omega_d = \sqrt{omega_0^2 - left(\frac{b}{2m}right)^2}
 <ul>
 <li>The system’s response is highly sensitive to the driving frequency.</li>
 <li>At certain frequencies, <strong>resonance</strong> occurs where amplitude grows significantly.</li>
-<li>Tuning ( \omega ) near ( \omega_0 ) results in large-amplitude oscillations.</li>
+<li>Tuning ( omega ) near ( omega_0 ) results in large-amplitude oscillations.</li>
 </ul>
 <hr/>
 <h3 id="22-types-of-motion">2.2 Types of Motion</h3>
 <p>Depending on parameter values, the system can exhibit:</p>
 <h4 id="1-periodic-motion">1. <strong>Periodic Motion</strong></h4>
-<p>Periodic motion occurs when the pendulum returns to the same state after a fixed time interval <span class="arithmatex">\( T \)</span>, which is typically equal to the period of the external driving force:</p>
+<p>Periodic motion occurs when the pendulum returns to the same state after a fixed time interval ( T ), which is typically equal to the period of the external driving force:</p>
 <div class="arithmatex">\[
-\theta(t + T) = \theta(t), \quad \dot{\theta}(t + T) = \dot{\theta}(t)
+theta(t + T) = theta(t), quad \dot{theta}(t + T) = \dot{theta}(t)
 \]</div>
 <p>This behavior indicates synchronization between the system's response and the periodic input. Such motion is characterized by:</p>
 <ul>
@@ -408,9 +408,9 @@ theta(t) = A_1 cos(omega_1 t) + A_2 cos(omega_2 t)
 </ul>
 <h4 id="3-chaotic-motion">3. <strong>Chaotic Motion</strong></h4>
 <p>Chaos is one of the most intriguing phenomena in nonlinear dynamics. In a chaotic system, the evolution is <strong>deterministic</strong>—meaning it follows a well-defined rule—but still <strong>unpredictable in the long term</strong>, due to extreme sensitivity to initial conditions.</p>
-<p>For the <strong>forced damped pendulum</strong>, chaotic motion can occur when the driving amplitude <span class="arithmatex">\( A \)</span> or frequency <span class="arithmatex">\( \omega \)</span> reach certain critical values. The governing nonlinear differential equation is:</p>
+<p>For the <strong>forced damped pendulum</strong>, chaotic motion can occur when the driving amplitude ( A ) or frequency ( \omega ) reach certain critical values. The governing nonlinear differential equation is:</p>
 <div class="arithmatex">\[
-\frac{d^2\theta}{dt^2} + \beta \frac{d\theta}{dt} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)
+\frac{d^2theta}{dt^2} + beta \frac{dtheta}{dt} + \frac{g}{L} sin(theta) = A cos(omega t)
 \]</div>
 <p>In the chaotic regime:</p>
 <ul>
@@ -669,8 +669,8 @@ plt.show()
 \]</div>
 <p>Where:</p>
 <ul>
-<li>( \theta(t) ) is the angular displacement (in radians),</li>
-<li>( \beta ) is the damping coefficient,</li>
+<li>( theta(t) ) is the angular displacement (in radians),</li>
+<li>( beta ) is the damping coefficient,</li>
 <li>( g ) is the gravitational acceleration,</li>
 <li>( L ) is the length of the pendulum,</li>
 <li>( A ) is the amplitude of the external periodic force,</li>
@@ -679,8 +679,8 @@ plt.show()
 <p>We reduce this second-order ODE to a system of two first-order equations:</p>
 <p>Let:</p>
 <ul>
-<li>( \theta_1 = \theta )</li>
-<li>( \theta_2 = \frac{d\theta}{dt} )</li>
+<li>( theta_1 = theta )</li>
+<li>( theta_2 = \frac{dtheta}{dt} )</li>
 </ul>
 <p>Then:</p>
 <div class="arithmatex">\[
@@ -711,13 +711,12 @@ def forced_damped_pendulum(t, y):
     dtheta_dt = omega_dot
     domega_dt = -beta * omega_dot - (g / L) * np.sin(theta) + A * np.cos(omega * t)
     return [dtheta_dt, domega_dt]
-$$
-# Initial conditions
-$$
-y0 = [0.2, 0.0]  # [initial angle (rad), initial angular velocity (rad/s)]
-t_span = (0, 20)
-t_eval = np.linspace(t_span[0], t_span[1], 1000)
 \]</div>
+<h1 id="initial-conditions">Initial conditions</h1>
+<p><code>phyton
+ y0 = [0.2, 0.0]  # [initial angle (rad), initial angular velocity (rad/s)]
+t_span = (0, 20)
+t_eval = np.linspace(t_span[0], t_span[1], 1000)</code> </p>
 <h1 id="numerical-solution">Numerical solution</h1>
 <div class="arithmatex">\[
 solution = solve_ivp(forced_damped_pendulum, t_span, y0, t_eval=t_eval)

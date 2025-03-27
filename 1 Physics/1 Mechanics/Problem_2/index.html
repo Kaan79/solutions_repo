@@ -183,9 +183,9 @@
 <h3 id="governing-differential-equation">Governing Differential Equation</h3>
 <p>The motion of a <strong>forced damped pendulum</strong> is governed by a second-order, nonlinear, non-homogeneous differential equation that accounts for three forces acting on the pendulum:</p>
 <ol>
-<li><strong>Restoring Force</strong> due to gravity: ( -mg \sin(\theta) )</li>
-<li><strong>Damping Force</strong> (e.g., air resistance or friction): proportional to angular velocity ( -b \frac{d\theta}{dt} )</li>
-<li><strong>External Driving Force</strong>: a periodic force of the form ( A \cos(\omega t) )</li>
+<li><strong>Restoring Force</strong> due to gravity: ( -mg sin(\heta) )</li>
+<li><strong>Damping Force</strong> (e.g., air resistance or friction): proportional to angular velocity ( -b frac{dtheta}{dt} )</li>
+<li><strong>External Driving Force</strong>: a periodic force of the form ( A cos(omega t) )</li>
 </ol>
 <p>Using Newton’s second law for rotational systems, the torque equation becomes:</p>
 <div class="arithmatex">\[
@@ -193,7 +193,7 @@ I \frac{d^2 theta}{dt^2} = -mgL sin(theta) - b \frac{dtheta}{dt} + A cos(omega t
 \]</div>
 <p>Here:
 - ( I = mL^2 ) is the moment of inertia for a point mass at the end of a rigid, massless rod,
-- \ L ) is the length of the pendulum,
+- ( L ) is the length of the pendulum,
 - ( m ) is the mass of the bob,
 - ( b ) is the damping coefficient,
 - ( A ) is the amplitude of the external torque.</p>
@@ -239,12 +239,22 @@ sin(theta) approx theta
 <div class="arithmatex">\[
 r^2 + gamma r + omega_0^2 = 0
 \]</div>
-<p>Solutions depend on the discriminant ( \Delta = \gamma^2 - 4\omega_0^2 ):</p>
-<ol>
-<li><strong>Underdamped</strong> (( \gamma^2 &lt; 4\omega_0^2 )): Oscillatory decay</li>
-<li><strong>Critically damped</strong> (( \gamma^2 = 4\omega_0^2 )): Fastest non-oscillatory decay</li>
-<li><strong>Overdamped</strong> (( \gamma^2 &gt; 4\omega_0^2 )): Slow, non-oscillatory decay</li>
-</ol>
+<p>Solutions depend on the discriminant 
+$$
+( Delta = gamma^2 - 4omega_0^2 ):
+$$
+1. <strong>Underdamped</strong> 
+$$
+(( gamma^2 &lt; 4omega_0^2 )): Oscillatory decay
+$$
+2. <strong>Critically damped</strong>
+$$
+ (( gamma^2 = 4omega_0^2 )): Fastest non-oscillatory decay
+ $$
+3. <strong>Overdamped</strong>
+ $$
+(( gamma^2 &gt; 4omega_0^2 )): Slow, non-oscillatory decay
+$$</p>
 <hr/>
 <h3 id="particular-solution-forcing-response">Particular Solution (Forcing Response)</h3>
 <p>The particular solution for the linearized system is of the form:</p>
@@ -257,7 +267,7 @@ theta_p(t) = C cos(omega t - delta)
 C = \frac{f}{\sqrt{(omega_0^2 - omega^2)^2 + (gamma omega)^2}}
 \]</div>
 <ul>
-<li>( \delta ) is the phase shift:</li>
+<li>( delta ) is the phase shift:</li>
 </ul>
 <div class="arithmatex">\[
 delta = tan^{-1} left( \frac{gamma omega}{omega_0^2 - omega^2} right)
@@ -674,15 +684,15 @@ plt.show()
 <li>( g ) is the gravitational acceleration,</li>
 <li>( L ) is the length of the pendulum,</li>
 <li>( A ) is the amplitude of the external periodic force,</li>
-<li>( \omega ) is the driving frequency.</li>
+<li>( omega ) is the driving frequency.</li>
 </ul>
 <p>We reduce this second-order ODE to a system of two first-order equations:</p>
-<p>Let:</p>
-<ul>
-<li>( theta_1 = theta )</li>
-<li>( theta_2 = \frac{dtheta}{dt} )</li>
-</ul>
-<p>Then:</p>
+<p>Let:
+$$
+- ( theta_1 = theta )
+- ( theta_2 = \frac{dtheta}{dt} )
+$$
+Then:</p>
 <div class="arithmatex">\[
 \frac{d theta_1}{dt} =  theta_2
 \]</div>
@@ -723,19 +733,19 @@ solution = solve_ivp(forced_damped_pendulum, t_span, y0, t_eval=t_eval)
 \]</div>
 <h2 id="5-phase-portraits-and-chaos-transitions">5. Phase Portraits and Chaos Transitions</h2>
 <p>In nonlinear dynamical systems like the <strong>forced damped pendulum</strong>, understanding transitions from periodic to chaotic motion requires powerful visualization tools. One of the most insightful among them is the <strong>phase portrait</strong>, also known as a <strong>phase space diagram</strong>.</p>
-<p>Phase portraits depict the trajectory of the system in state space, where each point corresponds to a pair ( (\theta, \dot{\theta}) ), representing angular displacement and angular velocity at a given time.</p>
+<p>Phase portraits depict the trajectory of the system in state space, where each point corresponds to a pair ( (theta, \dot{theta}) ), representing angular displacement and angular velocity at a given time.</p>
 <hr/>
 <h3 id="51-phase-space-analysis">5.1 Phase Space Analysis</h3>
 <p>The nonlinear equation governing the pendulum's motion is:</p>
 <div class="arithmatex">\[
 \frac{d^2 theta}{dt^2} + beta \frac{d theta}{dt} + \frac{g}{L} sin(theta) = A cos(omega t)
 \]</div>
-<p>To express this system in state space form, we define:</p>
-<ul>
-<li>( x = \theta )</li>
-<li>( v = \frac{d\theta}{dt} )</li>
-</ul>
-<p>Then the system becomes:</p>
+<p>To express this system in state space form, we define:
+$$
+- ( x = theta )
+- ( v = \frac{dtheta}{dt} )
+$$
+Then the system becomes:</p>
 <div class="arithmatex">\[
 \frac{dx}{dt} = v
 \]</div>
@@ -799,8 +809,8 @@ omega_0 = \sqrt{\frac{g}{L}}
 <h4 id="3-transition-to-chaos">3. Transition to Chaos</h4>
 <p>As the <strong>forcing amplitude</strong> ( A ) increases beyond a threshold, the system transitions from:</p>
 <ul>
-<li><strong>Periodic motion</strong> ( \rightarrow )</li>
-<li><strong>Quasiperiodic motion</strong> ( \rightarrow )</li>
+<li><strong>Periodic motion</strong> ( rightarrow )</li>
+<li><strong>Quasiperiodic motion</strong> ( rightarrow )</li>
 <li><strong>Chaotic motion</strong></li>
 </ul>
 <p>These transitions can be observed via:</p>

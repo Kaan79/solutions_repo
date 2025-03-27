@@ -20,9 +20,9 @@ This project aims to study the dynamics of the forced damped pendulum by combini
 
 The motion of a **forced damped pendulum** is governed by a second-order, nonlinear, non-homogeneous differential equation that accounts for three forces acting on the pendulum:
 
-1. **Restoring Force** due to gravity: ( -mg \sin(\theta) )
-2. **Damping Force** (e.g., air resistance or friction): proportional to angular velocity ( -b \frac{d\theta}{dt} )
-3. **External Driving Force**: a periodic force of the form ( A \cos(\omega t) )
+1. **Restoring Force** due to gravity: ( -mg sin(\heta) )
+2. **Damping Force** (e.g., air resistance or friction): proportional to angular velocity ( -b frac{dtheta}{dt} )
+3. **External Driving Force**: a periodic force of the form ( A cos(omega t) )
 
 Using Newton’s second law for rotational systems, the torque equation becomes:
 
@@ -32,7 +32,7 @@ $$
 
 Here:
 - ( I = mL^2 ) is the moment of inertia for a point mass at the end of a rigid, massless rod,
-- \ L ) is the length of the pendulum,
+- ( L ) is the length of the pendulum,
 - ( m ) is the mass of the bob,
 - ( b ) is the damping coefficient,
 - ( A ) is the amplitude of the external torque.
@@ -99,12 +99,22 @@ $$
 r^2 + gamma r + omega_0^2 = 0
 $$
 
-Solutions depend on the discriminant ( \Delta = \gamma^2 - 4\omega_0^2 ):
-
-1. **Underdamped** (( \gamma^2 < 4\omega_0^2 )): Oscillatory decay
-2. **Critically damped** (( \gamma^2 = 4\omega_0^2 )): Fastest non-oscillatory decay
-3. **Overdamped** (( \gamma^2 > 4\omega_0^2 )): Slow, non-oscillatory decay
-
+Solutions depend on the discriminant 
+$$
+( Delta = gamma^2 - 4omega_0^2 ):
+$$
+1. **Underdamped** 
+$$
+(( gamma^2 < 4omega_0^2 )): Oscillatory decay
+$$
+2. **Critically damped**
+$$
+ (( gamma^2 = 4omega_0^2 )): Fastest non-oscillatory decay
+ $$
+3. **Overdamped**
+ $$
+(( gamma^2 > 4omega_0^2 )): Slow, non-oscillatory decay
+$$
 ---
 
 ### Particular Solution (Forcing Response)
@@ -122,7 +132,7 @@ $$
 C = \frac{f}{\sqrt{(omega_0^2 - omega^2)^2 + (gamma omega)^2}}
 $$
 
-- ( \delta ) is the phase shift:
+- ( delta ) is the phase shift:
 
 $$
 delta = tan^{-1} left( \frac{gamma omega}{omega_0^2 - omega^2} right)
@@ -630,15 +640,15 @@ Where:
 - ( g ) is the gravitational acceleration,
 - ( L ) is the length of the pendulum,
 - ( A ) is the amplitude of the external periodic force,
-- ( \omega ) is the driving frequency.
+- ( omega ) is the driving frequency.
 
 We reduce this second-order ODE to a system of two first-order equations:
 
 Let:
-
+$$
 - ( theta_1 = theta )
 - ( theta_2 = \frac{dtheta}{dt} )
-
+$$
 Then:
 
 $$
@@ -693,7 +703,7 @@ $$
 
 In nonlinear dynamical systems like the **forced damped pendulum**, understanding transitions from periodic to chaotic motion requires powerful visualization tools. One of the most insightful among them is the **phase portrait**, also known as a **phase space diagram**.
 
-Phase portraits depict the trajectory of the system in state space, where each point corresponds to a pair ( (\theta, \dot{\theta}) ), representing angular displacement and angular velocity at a given time.
+Phase portraits depict the trajectory of the system in state space, where each point corresponds to a pair ( (theta, \dot{theta}) ), representing angular displacement and angular velocity at a given time.
 
 ---
 
@@ -706,10 +716,10 @@ $$
 $$
 
 To express this system in state space form, we define:
-
-- ( x = \theta )
-- ( v = \frac{d\theta}{dt} )
-
+$$
+- ( x = theta )
+- ( v = \frac{dtheta}{dt} )
+$$
 Then the system becomes:
 
 $$
@@ -795,8 +805,8 @@ This behavior is exploited in engineering for energy harvesting, but must be avo
 
 As the **forcing amplitude** ( A ) increases beyond a threshold, the system transitions from:
 
-- **Periodic motion** ( \rightarrow )
-- **Quasiperiodic motion** ( \rightarrow )
+- **Periodic motion** ( rightarrow )
+- **Quasiperiodic motion** ( rightarrow )
 - **Chaotic motion**
 
 These transitions can be observed via:

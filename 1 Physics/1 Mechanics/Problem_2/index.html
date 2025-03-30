@@ -636,7 +636,7 @@ m \ddot{x} + b \dot{x} + k x = F_0 cos(omega t)
 - ( b ) is damping,
 - ( k ) is spring stiffness,
 - ( x(t) ) is displacement,
-- ( F_0 \cos(\omega t) ) is periodic forcing (e.g., ground vibration).</p>
+- ( F_0  \cos(\omega t)  is periodic forcing (e.g., ground vibration).</p>
 <p>This is directly analogous to the linearized pendulum:</p>
 <div class="arithmatex">\[
 \ddot{theta} + gamma \dot{theta} + omega_0^2 theta = f cos(omega t)
@@ -675,7 +675,7 @@ plt.show()
 <h3 id="41-governing-equation-nonlinear-form">4.1 Governing Equation (Nonlinear Form)</h3>
 <p>The second-order nonlinear differential equation for a forced damped pendulum is:</p>
 <div class="arithmatex">\[
-\frac{d^2ntheta}{dt^2} + beta \frac{d theta}{dt} + \frac{g}{L} sin(theta) = A cos(omega t)
+\frac{d^2\theta}{dt^2} + \beta \frac{d\theta}{dt} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)
 \]</div>
 <p>Where:</p>
 <ul>
@@ -694,10 +694,10 @@ $$
 $$
 Then:</p>
 <div class="arithmatex">\[
-\frac{d theta_1}{dt} =  theta_2
+\frac{d\theta_1}{dt} = \theta_2
 \]</div>
 <div class="arithmatex">\[
-\frac{d theta_2}{dt} = -beta theta_2 - \frac{g}{L} sin(theta_1) + A cos(omega t)
+\frac{d\theta_2}{dt} = -\beta \theta_2 - \frac{g}{L} \sin(\theta_1) + A \cos(\omega t)
 \]</div>
 <hr/>
 <h3 id="42-python-implementation">4.2 Python Implementation</h3>

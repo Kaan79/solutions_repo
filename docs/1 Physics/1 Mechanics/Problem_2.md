@@ -577,7 +577,7 @@ Where:
 - ( b ) is damping,
 - ( k ) is spring stiffness,
 - ( x(t) ) is displacement,
-- ( F_0 \cos(\omega t) ) is periodic forcing (e.g., ground vibration).
+- ( F_0  \cos(\omega t)  is periodic forcing (e.g., ground vibration).
 
 This is directly analogous to the linearized pendulum:
 
@@ -630,7 +630,7 @@ To numerically study the behavior of a **forced damped pendulum**, we implement 
 The second-order nonlinear differential equation for a forced damped pendulum is:
 
 $$
-\frac{d^2ntheta}{dt^2} + beta \frac{d theta}{dt} + \frac{g}{L} sin(theta) = A cos(omega t)
+\frac{d^2\theta}{dt^2} + \beta \frac{d\theta}{dt} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)
 $$
 
 Where:
@@ -652,11 +652,11 @@ $$
 Then:
 
 $$
-\frac{d theta_1}{dt} =  theta_2
+\frac{d\theta_1}{dt} = \theta_2
 $$
 
 $$
-\frac{d theta_2}{dt} = -beta theta_2 - \frac{g}{L} sin(theta_1) + A cos(omega t)
+\frac{d\theta_2}{dt} = -\beta \theta_2 - \frac{g}{L} \sin(\theta_1) + A \cos(\omega t)
 $$
 
 ---

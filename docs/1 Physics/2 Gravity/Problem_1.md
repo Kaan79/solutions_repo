@@ -9,7 +9,7 @@ $$
 T^2 \propto R^3
 $$
 
-This indicates that the square of the orbital period \(T\) is directly proportional to the cube of the orbital radius \(R\).
+This indicates that the square of the orbital period (T) is directly proportional to the cube of the orbital radius (R).
 
 ### Derivation from Newtonian Mechanics
 
@@ -23,15 +23,14 @@ $$
 
 Where:
 
-- \(F\) is the gravitational force between two bodies,
-- \(G\) is the gravitational constant \((6.67430 \times 10^{-11}\,\text{m}^3\,\text{kg}^{-1}\,\text{s}^{-2})\),
-- \(M\) is the mass of the central object (e.g., the Sun),
-- \(m\) is the mass of the orbiting object,
-- \(R\) is the distance between the centers of the two objects (orbital radius).
+- (F) is the gravitational force between two bodies,
+- (G) is the gravitational constant ((6.67430 \times 10^{-11}\,\text{m}^3\,\text{kg}^{-1}\,\text{s}^{-2})),
+- (M) is the mass of the central object (e.g., the Sun),
+- (R) is the distance between the centers of the two objects (orbital radius).
 
 ### Circular Orbit Dynamics
 
-For an object in a stable circular orbit, the gravitational force provides the centripetal force necessary for circular motion. The centripetal force \(F_c\) needed to keep an object in circular motion is given by:
+For an object in a stable circular orbit, the gravitational force provides the centripetal force necessary for circular motion. The centripetal force (F_c) needed to keep an object in circular motion is given by:
 
 $$
 F_c = \frac{mv^2}{R}
@@ -39,9 +38,9 @@ $$
 
 where:
 
-- \(m\) is the mass of the orbiting object,
-- \(v\) is the orbital velocity,
-- \(R\) is the orbital radius.
+- (m) is the mass of the orbiting object,
+- (v) is the orbital velocity,
+- (R) is the orbital radius.
 
 ### Equating Gravitational and Centripetal Forces
 
@@ -51,7 +50,7 @@ $$
 \frac{GMm}{R^2} = \frac{mv^2}{R}
 $$
 
-Simplifying by canceling \(m\) (assuming \(m \ll M\)) and one \(R\):
+Simplifying by canceling (m) (assuming (m \ll M)) and one (R):
 
 $$
 \frac{GM}{R} = v^2
@@ -59,7 +58,7 @@ $$
 
 ### Expressing Velocity in Terms of Orbital Period
 
-The orbital velocity \(v\) can also be expressed in terms of the orbital period \(T\). Since the circumference of the orbit is \(2\pi R\), and the object completes this distance in one orbital period \(T\), we have:
+The orbital velocity (v) can also be expressed in terms of the orbital period (T). Since the circumference of the orbit is (2\pi R), and the object completes this distance in one orbital period (T), we have:
 
 $$
 v = \frac{2\pi R}{T}
@@ -99,7 +98,7 @@ $$
 
 ### Example Application
 
-For example, to calculate the orbital period of a satellite orbiting the Earth at a certain altitude, substitute the values of \(G\), \(M\) (mass of Earth \(5.972 \times 10^{24}\,\text{kg}\)), and the orbital radius \(R\) into the formula above.
+For example, to calculate the orbital period of a satellite orbiting the Earth at a certain altitude, substitute the values of (G), (M) (mass of Earth (5.972 \times 10^{24}\,\text{kg})), and the orbital radius (R) into the formula above.
 
 This derivation clearly illustrates the fundamental physical principles underlying Kepler's Third Law.
 
@@ -155,7 +154,7 @@ $$
 M = \frac{4\pi^2 R^3}{G T^2}
 $$
 
-By accurately measuring orbital periods (\(T\)) and distances (\(R\)), astronomers can determine masses of planets, stars, and even distant galaxies, improving our understanding of celestial bodies and their interactions.
+By accurately measuring orbital periods ((T)) and distances ((R)), astronomers can determine masses of planets, stars, and even distant galaxies, improving our understanding of celestial bodies and their interactions.
 
 ### **Determination of Astronomical Distances**
 
@@ -208,6 +207,9 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 ```
+![alt text](image-1.png)
+
+![alt text](image-2.png)
 
 # Orbital Period and Radius: Real-World Examples and Analysis
 
@@ -215,16 +217,16 @@ Kepler's Third Law provides a practical way to analyze celestial motion. Here we
 
 ## Kepler’s Third Law
 
-Kepler's third law relates the orbital period \( T \) and the orbital radius \( r \) as follows:
+Kepler's third law relates the orbital period ( T ) and the orbital radius ( r ) as follows:
 
 $$
 T^2 = \frac{4\pi^2}{GM} r^3
 $$
 
-- \( T \): Orbital period (seconds)
-- \( r \): Orbital radius or semi-major axis (meters)
-- \( G \): Universal gravitational constant (6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1}\text{s}^{-2})
-- \( M \): Mass of the central body (kg)
+- ( T ): Orbital period (seconds)
+- ( r ): Orbital radius or semi-major axis (meters)
+- ( G ): Universal gravitational constant (6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1}\text{s}^{-2})
+- ( M ): Mass of the central body (kg)
 
 ## Real-World Examples
 
@@ -300,11 +302,127 @@ plt.show()
 ![alt text](image.png)
 
 ## **5. Extending to Elliptical Orbits**
-- Kepler’s law applies to elliptical orbits by considering the **semi-major axis** instead of the radius.
-- Used in astrodynamics to analyze non-circular planetary motion.
 
+While we've primarily discussed circular orbits, **Kepler's Third Law** equally applies to **elliptical orbits**. Instead of a simple orbital radius, elliptical orbits are characterized by their **semi-major axis** (a), the longest radius of the ellipse.
+
+### **Kepler’s Third Law for Elliptical Orbits**
+
+For elliptical orbits, Kepler's third law is expressed by replacing the orbital radius (r) with the semi-major axis (a):
+
+$$
+T^2 = \frac{4\pi^2}{GM}a^3
+$$
+
+- (T): Orbital period of the orbiting body.
+- (a): Semi-major axis of the elliptical orbit.
+- (G): Universal gravitational constant.
+- (M): Mass of the central celestial body.
+
+### **Elliptical Orbit Parameters**
+
+An elliptical orbit has several key parameters:
+
+- **Semi-major axis ((a))**: Half the length of the ellipse’s longest diameter.
+- **Semi-minor axis ((b))**: Half the shortest diameter.
+- **Eccentricity ((e))**: Defines the ellipse's shape. For circular orbits, (e=0). Higher eccentricity means a more elongated orbit.
+  
+These parameters relate through the equation:
+
+$$
+b = a\sqrt{1 - e^2}
+$$
+
+### **Real-World Example: Halley’s Comet**
+
+Halley's Comet has a notably elliptical orbit around the Sun:
+
+| Parameter                | Value                          |
+|--------------------------|--------------------------------|
+| Orbital Period ((T))   | ~75.3 years                    |
+| Semi-major axis ((a))  | (2.667 \times 10^{12}) m (~17.8 AU) |
+| Eccentricity ((e))     | 0.967                          |
+
+Convert the orbital period (T) to seconds:
+
+$$
+T = 75.3 \text{ years} \times 365.25 \text{ days/year} \times 24 \text{ hr/day} \times 3600 \text{ s/hr} \approx 2.38 \times 10^{9} \text{ s}
+$$
+
+Verify Kepler's third law to estimate the mass of the Sun (\(M\)):
+
+$$
+M = \frac{4\pi^2 a^3}{G T^2}
+$$
+
+#### **Python Calculation**
+
+```python
+import numpy as np
+
+# Constants
+G = 6.67430e-11  # gravitational constant, m³ kg⁻¹ s⁻²
+a = 2.667e12     # semi-major axis in meters
+T = 75.3 * 365.25 * 24 * 3600  # period in seconds
+
+# Calculating Sun's mass using Halley's Comet data
+M_sun = (4 * np.pi**2 * a**3) / (G * T**2)
+print(f"Estimated Mass of the Sun: {M_sun:.2e} kg")
+```
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Ellipse parameters
+a = 1.0  # Semi-major axis
+e = 0.6  # Eccentricity
+b = a * np.sqrt(1 - e**2)
+
+# Parameterizing the ellipse
+theta = np.linspace(0, 2 * np.pi, 1000)
+x = a * np.cos(theta) - a * e  # shifted to the focus point
+y = b * np.sin(theta)
+
+# Plotting the elliptical orbit
+plt.figure(figsize=(8, 6))
+plt.plot(x, y, label=f'Orbit (e={e})')
+plt.scatter(-a * e, 0, color='red', marker='o', label='Central Body (Focus)')
+plt.title('Elliptical Orbit Visualization')
+plt.xlabel('X-axis (AU)')
+plt.ylabel('Y-axis (AU)')
+plt.grid(True)
+plt.axis('equal')
+plt.legend()
+plt.show()
+```
+![alt text](image-3.png)
 ## **6. Conclusion**
-- **Kepler’s Third Law** is fundamental in celestial mechanics.
-- **Observational verification** confirms Newtonian gravity.
-- **Extends to exoplanetary systems and astrophysics applications.**
 
+**Kepler’s Third Law** plays a fundamental role in celestial mechanics and astrophysics, establishing a crucial mathematical relationship between orbital periods and orbital distances. Initially discovered through careful astronomical observations by Johannes Kepler, this law provides strong observational evidence supporting Newton’s universal law of gravitation.
+
+### **Observational Verification and Implications**
+
+Through rigorous astronomical observations and modern computational analyses, Kepler's law has been repeatedly confirmed for celestial bodies within the Solar System and beyond. These confirmations not only validate classical Newtonian gravitational theory but also provide a robust basis for precision calculations in modern astrodynamics, orbital mechanics, and space exploration.
+
+### **Applications in Modern Astronomy and Astrophysics**
+
+Kepler’s third law has profound implications in the study of exoplanetary systems. It enables astronomers to:
+
+- **Detect and characterize exoplanets**, determining their orbital periods, distances from host stars, and mass distributions.
+- Perform precise orbital maneuvers for interplanetary spacecraft, including missions utilizing elliptical transfer orbits (e.g., Hohmann transfers).
+- Accurately predict comet and asteroid trajectories, aiding planetary defense initiatives and space missions.
+
+### **Expanding Beyond the Solar System**
+
+The applicability of Kepler’s law extends far beyond our Solar System, serving as a cornerstone in astrophysics for analyzing binary star systems, black hole accretion disks, and galaxy rotation dynamics. Moreover, advancements in observational astronomy—such as space-based telescopes (Kepler, TESS, JWST)—continue to leverage this foundational law to deepen our understanding of distant worlds and astrophysical phenomena.
+
+### **Future Perspectives**
+
+With advancements in observational technology and computational methods, Kepler’s third law remains indispensable. Its continued relevance in modern astrophysics emphasizes not only historical scientific progress but also guides future research directions, including:
+
+- **Refined modeling of gravitational interactions** within star systems.
+- Improved predictive models for planetary formation and evolution.
+- Enhanced strategies for spacecraft navigation and long-term mission planning.
+
+Thus, **Kepler’s Third Law** stands as a timeless principle, bridging historical astronomy and cutting-edge astrophysical research, continually deepening our comprehension of the universe.
+
+---

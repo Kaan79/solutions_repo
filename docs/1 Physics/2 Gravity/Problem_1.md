@@ -411,7 +411,7 @@ Kepler’s third law has profound implications in the study of exoplanetary syst
 - Perform precise orbital maneuvers for interplanetary spacecraft, including missions utilizing elliptical transfer orbits (e.g., Hohmann transfers).
 - Accurately predict comet and asteroid trajectories, aiding planetary defense initiatives and space missions.
 
-### **Expanding Beyond the Solar System**
+### **Expanding Beyond the Solar System** 
 
 The applicability of Kepler’s law extends far beyond our Solar System, serving as a cornerstone in astrophysics for analyzing binary star systems, black hole accretion disks, and galaxy rotation dynamics. Moreover, advancements in observational astronomy—such as space-based telescopes (Kepler, TESS, JWST)—continue to leverage this foundational law to deepen our understanding of distant worlds and astrophysical phenomena.
 

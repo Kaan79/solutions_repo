@@ -425,4 +425,4 @@ With advancements in observational technology and computational methods, Keplerâ
 
 Thus, **Keplerâ€™s Third Law** stands as a timeless principle, bridging historical astronomy and cutting-edge astrophysical research, continually deepening our comprehension of the universe.
 
----
+--- 

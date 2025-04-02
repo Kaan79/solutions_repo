@@ -76,7 +76,7 @@ $$
 \frac{GM}{R} = \frac{4\pi^2 R^2}{T^2}
 $$
 
-Multiplying both sides by \(T^2\) and rearranging, we obtain:
+Multiplying both sides by (T^2) and rearranging, we obtain:
 
 $$
 T^2 = \frac{4\pi^2}{GM} R^3
@@ -154,7 +154,7 @@ $$
 M = \frac{4\pi^2 R^3}{G T^2}
 $$
 
-By accurately measuring orbital periods ((T)) and distances ((R)), astronomers can determine masses of planets, stars, and even distant galaxies, improving our understanding of celestial bodies and their interactions.
+By accurately measuring orbital periods (T) and distances (R), astronomers can determine masses of planets, stars, and even distant galaxies, improving our understanding of celestial bodies and their interactions.
 
 ### **Determination of Astronomical Distances**
 
@@ -234,7 +234,7 @@ $$
 
 The Moon orbits the Earth approximately every 27.3 days.
 
-Convert the orbital period \(T\) to seconds:
+Convert the orbital period (T) to seconds:
 
 $$
 T = 27.3 \text{ days} \times 24 \frac{\text{hours}}{\text{day}} \times 3600 \frac{\text{seconds}}{\text{hour}} \approx 2.36 \times 10^6 \text{ s}
@@ -322,9 +322,9 @@ $$
 
 An elliptical orbit has several key parameters:
 
-- **Semi-major axis ((a))**: Half the length of the ellipse’s longest diameter.
-- **Semi-minor axis ((b))**: Half the shortest diameter.
-- **Eccentricity ((e))**: Defines the ellipse's shape. For circular orbits, (e=0). Higher eccentricity means a more elongated orbit.
+- **Semi-major axis (a)**: Half the length of the ellipse’s longest diameter.
+- **Semi-minor axis (b)**: Half the shortest diameter.
+- **Eccentricity (e)**: Defines the ellipse's shape. For circular orbits, (e=0). Higher eccentricity means a more elongated orbit.
   
 These parameters relate through the equation:
 
@@ -348,7 +348,7 @@ $$
 T = 75.3 \text{ years} \times 365.25 \text{ days/year} \times 24 \text{ hr/day} \times 3600 \text{ s/hr} \approx 2.38 \times 10^{9} \text{ s}
 $$
 
-Verify Kepler's third law to estimate the mass of the Sun (\(M\)):
+Verify Kepler's third law to estimate the mass of the Sun (M):
 
 $$
 M = \frac{4\pi^2 a^3}{G T^2}

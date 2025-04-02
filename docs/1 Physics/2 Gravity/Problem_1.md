@@ -24,7 +24,7 @@ $$
 Where:
 
 - (F) is the gravitational force between two bodies,
-- (G) is the gravitational constant ((6.67430 \times 10^{-11}\,\text{m}^3\,\text{kg}^{-1}\,\text{s}^{-2})),
+- (G) is the gravitational constant $$(6.67430 \times 10^{-11}\,\text{m}^3\,\text{kg}^{-1}\,\text{s}^{-2})$$,
 - (M) is the mass of the central object (e.g., the Sun),
 - (R) is the distance between the centers of the two objects (orbital radius).
 
@@ -98,7 +98,7 @@ $$
 
 ### Example Application
 
-For example, to calculate the orbital period of a satellite orbiting the Earth at a certain altitude, substitute the values of (G), (M) (mass of Earth (5.972 \times 10^{24}\,\text{kg})), and the orbital radius (R) into the formula above.
+For example, to calculate the orbital period of a satellite orbiting the Earth at a certain altitude, substitute the values of (G), (M) (mass of Earth) $$(5.972 \times 10^{24}\,\text{kg})$$, and the orbital radius (R) into the formula above.
 
 This derivation clearly illustrates the fundamental physical principles underlying Kepler's Third Law.
 
@@ -125,7 +125,7 @@ $$
 v^2 = \frac{G M}{R}
 $$
 
-Using the relation between velocity and period $$(( v = \frac{2\pi R}{T} ))$$:
+Using the relation between velocity and period $$( v = \frac{2\pi R}{T} )$$:
 
 $$
 left(\frac{2pi R}{T}right)^2 = \frac{G M}{R}
@@ -225,7 +225,7 @@ $$
 
 - ( T ): Orbital period (seconds)
 - ( r ): Orbital radius or semi-major axis (meters)
-- ( G ): Universal gravitational constant (6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1}\text{s}^{-2})
+- ( G ): Universal gravitational constant $$(6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1}\text{s}^{-2})$$
 - ( M ): Mass of the central body (kg)
 
 ## Real-World Examples
@@ -338,9 +338,9 @@ Halley's Comet has a notably elliptical orbit around the Sun:
 
 | Parameter                | Value                          |
 |--------------------------|--------------------------------|
-| Orbital Period ((T))   | ~75.3 years                    |
-| Semi-major axis ((a))  | (2.667 \times 10^{12}) m (~17.8 AU) |
-| Eccentricity ((e))     | 0.967                          |
+| Orbital Period (T)   | ~75.3 years                    |
+| Semi-major axis (a)  | (2.667 \times 10^{12}) m (~17.8 AU) |
+| Eccentricity (e)     | 0.967                          |
 
 Convert the orbital period (T) to seconds:
 

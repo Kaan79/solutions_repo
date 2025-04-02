@@ -453,6 +453,8 @@ In summary, while cosmic velocity equations are crucial for understanding spacef
 
 ## 7. Conclusion
 
+## 7. Conclusion
+
 Cosmic velocities provide a foundational understanding of motion under the influence of gravity. These critical speed thresholds—orbital velocity, escape velocity, and interstellar escape velocity—are not just theoretical ideas but **practical tools** used in nearly every aspect of space exploration.
 
 From sending satellites into low Earth orbit to navigating complex interplanetary missions and even envisioning journeys beyond our solar system, mastering these principles enables engineers and scientists to plan **precise, fuel-efficient, and cost-effective** missions.

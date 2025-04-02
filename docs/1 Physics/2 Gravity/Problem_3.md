@@ -70,7 +70,9 @@ If a payload is located at an altitude of ( h = 300 \, \text{km} ) above Earthâ€
 
 - Radius of Earth: ( R_E = 6.371 \times 10^6 \, \text{m} )
 - Total distance from Earth's center:  
- $$( r = R_E + h = (6.371 + 0.300) \times 10^6 = 6.671 \times 10^6 \, \text{m} )$$
+ $$
+ ( r = R_E + h = (6.371 + 0.300) \times 10^6 = 6.671 \times 10^6 \, \text{m} )
+ $$
 
 Letâ€™s calculate the gravitational force acting on a 100 kg payload:
 

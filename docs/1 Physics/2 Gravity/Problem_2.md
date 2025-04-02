@@ -62,9 +62,9 @@ This shows that the orbital velocity depends **only on the mass and radius of th
 Let’s calculate the first cosmic velocity near Earth's surface.
 
 **Given:**
-- $$( G = 6.67430 \times 10^{-11} \, \text{m}^3/\text{kg} \cdot \text{s}^2 )$$
-- $$( M = 5.972 \times 10^{24} \, \text{kg} )$$
-- $$( R = 6.371 \times 10^6 \, \text{m} )$$
+- $$ ( G = 6.67430 \times 10^{-11} \, \text{m}^3/\text{kg} \cdot \text{s}^2 ) $$
+- $$ ( M = 5.972 \times 10^{24} \, \text{kg} ) $$
+- $$ ( R = 6.371 \times 10^6 \, \text{m} ) $$
 
 **Calculation:**
 

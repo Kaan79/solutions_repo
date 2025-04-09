@@ -58,7 +58,7 @@ $$
 R_{eq} = R_1 + R_2 + \cdots + R_n
 $$
 
-**Example:**
+**dwqExample:**
 
 Three resistors in series:  
 $( R_1 = 2\,\Omega )$, $( R_2 = 3\,\Omega )$, $( R_3 = 5\,\Omega )$
@@ -445,8 +445,8 @@ This approach beautifully bridges the disciplines of:
 
 Such interdisciplinary fusion not only improves the efficiency of circuit analysis, but also opens the door for innovations in:
 
-- 📐 **Circuit design automation**
--  *Simulation software**
+-  **Circuit design automation**
+-  **Simulation software**
 -  **Education and visualization tools**
 -  **Optimization of electrical networks**
 

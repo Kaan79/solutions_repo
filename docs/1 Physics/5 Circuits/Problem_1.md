@@ -58,7 +58,7 @@ $$
 R_{eq} = R_1 + R_2 + \cdots + R_n
 $$
 
-** Example:**
+**Example:**
 
 Three resistors in series:  
 $( R_1 = 2\,\Omega )$, $( R_2 = 3\,\Omega )$, $( R_3 = 5\,\Omega )$

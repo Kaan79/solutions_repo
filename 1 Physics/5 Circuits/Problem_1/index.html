@@ -172,6 +172,375 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="equivalent-resistance-using-graph-theory">Equivalent Resistance Using Graph Theory</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Understanding how to calculate the equivalent resistance of electrical circuits is essential in electrical engineering. Traditional methods rely heavily on applying series and parallel rules iteratively, which can become impractical for complex networks. Instead, we can apply <strong>graph theory</strong>, which provides a systematic and algorithmic approach to analyze circuits using mathematical graph structures.</p>
+<p>In this notebook, we will:
+- Model circuits using graphs
+- Implement algorithms to simplify these graphs
+- Visualize circuits and transformations
+- Derive equivalent resistances step-by-step using Python</p>
+<hr/>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#math">Mathematical Background</a></li>
+<li><a href="#graph-representation">Graph Representation of Circuits</a></li>
+<li><a href="#algorithm">Simplification Algorithm</a></li>
+<li><a href="#implementation">Implementation in Python</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#analysis">Efficiency and Limitations</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<hr/>
+<h2 id="1-mathematical-background">1. Mathematical Background</h2>
+<p>The behavior of electrical circuits can be rigorously analyzed by modeling them as <strong>weighted undirected graphs</strong>. In this framework, each <strong>node</strong> (vertex) corresponds to a junction or terminal, and each <strong>edge</strong> represents a resistor with a specific resistance value.</p>
+<p>Let us define the circuit as a graph:</p>
+<ul>
+<li>$( G = (V, E) ) is an undirected graph.</li>
+<li><span class="arithmatex">\(( V )\)</span> is the set of vertices representing junctions or terminals.</li>
+<li><span class="arithmatex">\(( E )\)</span> is the set of edges, where each edge <span class="arithmatex">\(( e_{ij} \in E )\)</span> connects vertices <span class="arithmatex">\(( i )\)</span> and <span class="arithmatex">\(( j )\)</span> and is associated with a resistance value <span class="arithmatex">\(( R_{ij} )\)</span>.</li>
+</ul>
+<h3 id="11-ohms-law-and-linear-resistors">1.1 Ohm's Law and Linear Resistors</h3>
+<p>The fundamental law governing resistor behavior is <strong>Ohm’s Law</strong>, which relates voltage <span class="arithmatex">\(( V )\)</span>, current <span class="arithmatex">\(( I )\)</span>, and resistance <span class="arithmatex">\((R)\)</span>:</p>
+<div class="arithmatex">\[
+V = IR
+\]</div>
+<p>This linear relationship implies that resistors can be combined algebraically when they are in series or in parallel. This is the basis for the simplification rules used in graph-based analysis.</p>
+<hr/>
+<h3 id="12-series-rule">1.2 Series Rule</h3>
+<p>When two or more resistors are connected <strong>in series</strong>, the same current flows through each resistor, and the total voltage is the sum of the voltages across each resistor. Hence, the equivalent resistance is simply the sum of the individual resistances:</p>
+<p>If <span class="arithmatex">\(( R_1, R_2, \ldots, R_n )\)</span> are in series:</p>
+<div class="arithmatex">\[
+R_{eq} = R_1 + R_2 + \cdots + R_n
+\]</div>
+<p>** Example:**</p>
+<p>Three resistors in series:<br/>
+<span class="arithmatex">\(( R_1 = 2\,\Omega )\)</span>, <span class="arithmatex">\(( R_2 = 3\,\Omega )\)</span>, <span class="arithmatex">\(( R_3 = 5\,\Omega )\)</span></p>
+<p>Then:</p>
+<div class="arithmatex">\[
+R_{eq} = 2 + 3 + 5 = 10\,\Omega
+\]</div>
+<hr/>
+<h3 id="13-parallel-rule">1.3 Parallel Rule</h3>
+<p>When two or more resistors are connected <strong>in parallel</strong>, the voltage across each resistor is the same, but the total current is the sum of the currents through each branch.</p>
+<p>For two resistors:</p>
+<div class="arithmatex">\[
+\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2}
+\]</div>
+<p>Solving for <span class="arithmatex">\(<span class="arithmatex">\(( R_{eq} )\)</span>\)</span>:</p>
+<div class="arithmatex">\[
+R_{eq} = \frac{R_1 R_2}{R_1 + R_2}
+\]</div>
+<p>For <span class="arithmatex">\(( n )\)</span> resistors in parallel:</p>
+<div class="arithmatex">\[
+\frac{1}{R_{eq}} = \sum_{i=1}^{n} \frac{1}{R_i}
+\]</div>
+<p><strong>Example:</strong></p>
+<p>Two resistors in parallel:<br/>
+<span class="arithmatex">\(( R_1 = 4\,\Omega )\)</span>, <span class="arithmatex">\(( R_2 = 6\,\Omega )\)</span></p>
+<p>Then:</p>
+<div class="arithmatex">\[
+\frac{1}{R_{eq}} = \frac{1}{4} + \frac{1}{6} = \frac{5}{12} \Rightarrow R_{eq} = \frac{12}{5} = 2.4\,\Omega
+\]</div>
+<hr/>
+<h3 id="14-mixed-configurations">1.4 Mixed Configurations</h3>
+<p>Most practical circuits are <strong>combinations of series and parallel</strong> resistors. These mixed configurations must be reduced step-by-step by identifying local patterns.</p>
+<p><strong>Example:</strong></p>
+<p>A combination:</p>
+<ul>
+<li><span class="arithmatex">\(( R_1 = 3\,\Omega )\)</span> and <span class="arithmatex">\(( R_2 = 6\,\Omega )\)</span> in parallel:</li>
+</ul>
+<div class="arithmatex">\[
+R_p = \frac{3 \cdot 6}{3 + 6} = 2\,\Omega
+\]</div>
+<ul>
+<li>Then, <span class="arithmatex">\(( R_p )\)</span> in series with <span class="arithmatex">\(( R_3 = 5\,\Omega )\)</span>:</li>
+</ul>
+<div class="arithmatex">\[
+R_{eq} = 2 + 5 = 7\,\Omega
+\]</div>
+<hr/>
+<h3 id="15-graph-theoretic-implication">1.5 Graph-Theoretic Implication</h3>
+<p>In a graph-based model:</p>
+<ul>
+<li><strong>Series combinations</strong> can be detected by finding a node of degree 2 that is not a source or sink and replacing the adjacent edges with a single edge.</li>
+<li><strong>Parallel combinations</strong> appear as <strong>multi-edges</strong> (multiple edges between the same two nodes) or <strong>cycles</strong> with identical endpoints.</li>
+</ul>
+<p>Graph reduction techniques involve <strong>edge merging</strong>, <strong>node contraction</strong>, and simplification rules derived from these principles.</p>
+<h2 id="2-graph-representation-of-circuits">2. Graph Representation of Circuits</h2>
+<p>To analyze electrical circuits using graph theory, we must first translate the physical components of a circuit into a <strong>graph structure</strong>. This allows us to apply mathematical and algorithmic techniques for simplification and analysis.</p>
+<p>We use the Python library <code>networkx</code> to model circuits as graphs, and <code>matplotlib</code> to visualize them.</p>
+<h3 id="required-libraries">Required Libraries</h3>
+<pre><code class="language-python">import networkx as nx
+import matplotlib.pyplot as plt
+</code></pre>
+<ul>
+<li><code>networkx</code>: Used to create and manipulate the graph (nodes = junctions, edges = resistors).</li>
+<li><code>matplotlib.pyplot</code>: Used to draw and display the circuit graph.</li>
+</ul>
+<hr/>
+<h3 id="building-the-graph">Building the Graph</h3>
+<p>Each <strong>node</strong> in the graph represents a <strong>junction</strong> or connection point (e.g., wires meeting at a point).</p>
+<p>Each <strong>edge</strong> represents a <strong>resistor</strong>, with an attribute <code>resistance</code> that stores its value in ohms (Ω).</p>
+<pre><code class="language-python">G = nx.Graph()
+G.add_edge("A", "B", resistance=4)
+G.add_edge("B", "C", resistance=2)
+G.add_edge("A", "C", resistance=4)
+</code></pre>
+<ul>
+<li>This creates three connections:</li>
+<li>Between A and B with 4Ω</li>
+<li>Between B and C with 2Ω</li>
+<li>Between A and C with 4Ω</li>
+</ul>
+<p>These represent a <strong>triangle</strong> configuration — a common form where multiple current paths exist (useful for demonstrating parallel and nested structures).</p>
+<hr/>
+<h3 id="visualizing-the-circuit-graph">Visualizing the Circuit Graph</h3>
+<p>Once the graph is built, we can visualize it using <code>matplotlib</code>.</p>
+<pre><code class="language-python">pos = nx.spring_layout(G)  # Automatically position nodes
+nx.draw(G, pos, with_labels=True, node_size=2000)  # Draw nodes
+labels = nx.get_edge_attributes(G, 'resistance')   # Get resistance values
+nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)  # Label edges
+plt.title("Circuit Graph")
+plt.show()
+</code></pre>
+<h4 id="explanation">Explanation:</h4>
+<ul>
+<li><code>spring_layout</code>: Computes visually appealing positions for nodes.</li>
+<li><code>with_labels=True</code>: Labels each node with its name ("A", "B", etc.).</li>
+<li><code>edge_labels=labels</code>: Displays resistance values directly on the edges.</li>
+<li><code>plt.title</code>: Adds a title to the graph.</li>
+</ul>
+<hr/>
+<h3 id="interpretation-of-the-graph">Interpretation of the Graph</h3>
+<p>The resulting graph will be a triangle connecting nodes A, B, and C, with labeled resistances:</p>
+<ul>
+<li>A to B: 4Ω  </li>
+<li>B to C: 2Ω  </li>
+<li>A to C: 4Ω  </li>
+</ul>
+<p>This configuration represents a <strong>simple closed-loop circuit</strong>. Depending on which two points are chosen as terminals (input/output), this can represent:
+- A parallel configuration (A-B and A-C paths)
+- A nested series-parallel network (A → B → C vs. A → C)</p>
+<hr/>
+<h3 id="why-graphs">Why Graphs?</h3>
+<p>Modeling circuits as graphs provides several advantages:
+- Easier identification of <strong>series and parallel</strong> components.
+- Enables <strong>automated simplification</strong> using algorithms.
+- Ready to integrate with <strong>simulation tools</strong> and <strong>matrix-based methods</strong> (like Kirchhoff analysis).</p>
+<p>In the next sections, we will explore how to <strong>simplify</strong> this graph by identifying and reducing resistors step-by-step.</p>
+<h2 id="3-simplification-algorithm">3. Simplification Algorithm &lt;</h2>
+<h3 id="goal">Goal:</h3>
+<p>Reduce the graph to a single equivalent edge between source and sink.</p>
+<h3 id="key-steps">Key Steps:</h3>
+<ol>
+<li>Detect and merge series resistors</li>
+<li>Detect and merge parallel resistors</li>
+<li>Repeat until only two nodes remain (start and end)</li>
+</ol>
+<h3 id="pseudocode">Pseudocode:</h3>
+<pre><code class="language-text">while graph has more than 2 nodes:
+    for node in graph:
+        if node has degree 2:
+            if both neighbors are not connected:
+                merge as series
+        if two edges share same endpoints:
+            merge as parallel
+</code></pre>
+<hr/>
+<h2 id="4-implementation-in-python">4. Implementation in Python</h2>
+<p>We'll implement helper functions to:
+- Detect series and parallel structures
+- Merge edges
+- Track steps</p>
+<pre><code class="language-python">def equivalent_resistance(graph, source, sink):
+    # Simplification loop
+    while True:
+        changed = False
+        # Handle series
+        for node in list(graph.nodes):
+            if graph.degree[node] == 2 and node not in [source, sink]:
+                neighbors = list(graph.neighbors(node))
+                if not graph.has_edge(neighbors[0], neighbors[1]):
+                    R1 = graph[node][neighbors[0]]['resistance']
+                    R2 = graph[node][neighbors[1]]['resistance']
+                    graph.add_edge(neighbors[0], neighbors[1], resistance=R1 + R2)
+                    graph.remove_node(node)
+                    changed = True
+                    break
+        # Handle parallel
+        for u, v in list(graph.edges()):
+            parallels = [(u_, v_) for u_, v_ in graph.edges() if set([u_, v_]) == set([u, v])]
+            if len(parallels) &gt; 1:
+                total = sum([1 / graph[a][b]['resistance'] for a, b in parallels])
+                Req = 1 / total
+                for a, b in parallels:
+                    graph.remove_edge(a, b)
+                graph.add_edge(u, v, resistance=Req)
+                changed = True
+                break
+        if not changed:
+            break
+    return graph[source][sink]['resistance']
+</code></pre>
+<hr/>
+<h2 id="5-examples">5. Examples</h2>
+<h3 id="example-1-simple-series">Example 1: Simple Series</h3>
+<p>A --(2Ω)-- B --(3Ω)-- C</p>
+<p>Result:</p>
+<pre><code class="language-python">Expected: 5Ω
+</code></pre>
+<h3 id="example-2-simple-parallel">Example 2: Simple Parallel</h3>
+<p>A --(2Ω)-- B
+A --(3Ω)-- B</p>
+<p>Result:</p>
+<pre><code class="language-python">Expected: 1.2Ω
+</code></pre>
+<h3 id="example-3-nested-configuration">Example 3: Nested Configuration</h3>
+<pre><code>        A
+       / \
+     2Ω  4Ω
+     /     \
+    B       C
+     \     /
+      2Ω  1Ω
+         \
+           D
+</code></pre>
+<p>Code and visualization will follow for each.</p>
+<hr/>
+<h2 id="6-efficiency-and-limitations">6. Efficiency and Limitations</h2>
+<p>While graph theory provides a powerful and general framework for analyzing circuits, its implementation has both computational and structural trade-offs that must be considered. This section reviews the <strong>time complexity</strong>, <strong>algorithmic bottlenecks</strong>, and <strong>practical limitations</strong>—along with suggestions for future improvements.</p>
+<hr/>
+<h3 id="time-complexity">Time Complexity</h3>
+<p>The core idea of our algorithm is to iteratively search for and reduce <strong>series</strong> and <strong>parallel</strong> resistor patterns within the graph. At each iteration, the graph is simplified step-by-step.</p>
+<ul>
+<li><strong>Series detection</strong>: Requires checking if a node has exactly two neighbors (degree = 2). This can be done in <span class="arithmatex">\( O(n) \)</span>, where <span class="arithmatex">\( n \)</span> is the number of nodes.</li>
+<li><strong>Parallel detection</strong>: Requires checking for multi-edges or duplicate edge endpoints, which also takes <span class="arithmatex">\( O(m) \)</span>, where <span class="arithmatex">\( m \)</span> is the number of edges.</li>
+</ul>
+<p>Since simplification is done <strong>iteratively</strong>, the <strong>worst-case complexity</strong> could approach:</p>
+<div class="arithmatex">\[
+O(k \cdot (n + m))
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(( k )\)</span> = number of simplification passes (in deeply nested circuits, this could be large),
+- <span class="arithmatex">\(( n )\)</span> = number of nodes,
+- <span class="arithmatex">\(( m )\)</span> = number of edges.</p>
+<hr/>
+<h3 id="example-of-iterative-passes">🔁 Example of Iterative Passes</h3>
+<p>Consider a nested configuration like this:</p>
+<ul>
+<li>A triangle <span class="arithmatex">\(( A \leftrightarrow B \leftrightarrow C \leftrightarrow A )\)</span></li>
+<li>Each edge is made up of <strong>two resistors in series</strong></li>
+<li>All triangle edges are connected in <strong>parallel</strong></li>
+</ul>
+<p>To simplify:</p>
+<ol>
+<li><strong>First Pass</strong>: Each series pair must be merged → results in 3 single resistors</li>
+<li><strong>Second Pass</strong>: Triangle must be reduced using parallel formula → results in one equivalent resistor</li>
+</ol>
+<p>Thus, even for small graphs, <strong>multiple iterations</strong> are often required.</p>
+<hr/>
+<h3 id="limitations">Limitations</h3>
+<p>Despite the flexibility of the method, there are several limitations to be aware of:</p>
+<h4 id="1-non-linear-components">1. Non-linear Components</h4>
+<ul>
+<li>Devices like <strong>diodes</strong>, <strong>transistors</strong>, or <strong>capacitors</strong> have <strong>non-linear or time-dependent</strong> behavior.</li>
+<li>These components cannot be modeled as static resistors and require <strong>differential equations</strong> or <strong>piecewise models</strong>, which are beyond the scope of our graph simplification approach.</li>
+</ul>
+<h4 id="2-no-automatic-terminal-identification">2. No Automatic Terminal Identification</h4>
+<ul>
+<li>The algorithm assumes that the <strong>source and sink nodes are known in advance</strong> (e.g., “A” and “D”).</li>
+<li>In general circuit analysis, <strong>determining valid input/output nodes</strong> from arbitrary topologies requires an additional <strong>pre-processing step</strong>.</li>
+</ul>
+<h4 id="3-cycles-and-bridges">3. Cycles and Bridges</h4>
+<ul>
+<li>Graphs with complex cycles or bridge connections (edges whose removal increases the number of connected components) may require symbolic tracking.</li>
+<li>Sometimes <strong>series and parallel rules are insufficient</strong> for full simplification, especially in <strong>non-planar</strong> graphs.</li>
+</ul>
+<hr/>
+<h3 id="potential-improvements">Potential Improvements</h3>
+<p>Several algorithmic and symbolic enhancements can extend this method:</p>
+<h4 id="1-graph-contraction-heuristics">1. Graph Contraction Heuristics</h4>
+<p>Use more advanced <strong>graph theory operations</strong> like:
+- <strong>Edge contraction</strong> (for series nodes)
+- <strong>Bridge detection</strong> and <strong>cycle basis analysis</strong> (for parallel and redundant paths)</p>
+<p>These can accelerate simplification in sparse or dense networks.</p>
+<h4 id="2-symbolic-computation">2. Symbolic Computation</h4>
+<ul>
+<li>Use symbolic libraries (e.g., SymPy) to track resistance values algebraically:</li>
+<li>Supports <strong>variable resistors</strong> like <span class="arithmatex">\(( R_1 = x )\)</span>, <span class="arithmatex">\(( R_2 = 2x )\)</span></li>
+<li>Allows solving for <strong>equivalent resistance as a function</strong></li>
+</ul>
+<h4 id="3-kirchhoff-based-matrix-analysis">3. Kirchhoff-Based Matrix Analysis</h4>
+<ul>
+<li>Construct <strong>incidence</strong>, <strong>adjacency</strong>, or <strong>Laplacian matrices</strong> from the graph</li>
+<li>Use them to solve for voltages and currents using <strong>Kirchhoff’s Laws</strong></li>
+<li>Especially useful when simplification rules are not enough (e.g., for bridge networks)</li>
+</ul>
+<hr/>
+<h3 id="summary">Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Best Case</strong></td>
+<td>Simple series/parallel → <span class="arithmatex">\(( O(n) )\)</span></td>
+</tr>
+<tr>
+<td><strong>Worst Case</strong></td>
+<td>Nested &amp; cyclic circuits → multiple passes <span class="arithmatex">\(( O(k \cdot (n + m)) )\)</span></td>
+</tr>
+<tr>
+<td><strong>Weaknesses</strong></td>
+<td>Non-linear components, undefined terminals</td>
+</tr>
+<tr>
+<td><strong>Extensions</strong></td>
+<td>Symbolic algebra, matrix methods, edge contraction</td>
+</tr>
+</tbody>
+</table>
+<p>This efficiency and limitation analysis helps define the <strong>scope</strong> of graph-based resistance computation and guides us toward <strong>next-generation circuit analysis tools</strong>.</p>
+<h2 id="7-conclusion">7. Conclusion</h2>
+<p>Graph theory provides a structured, scalable, and algorithmically elegant framework for analyzing and simplifying electrical circuits. By abstracting physical components like resistors into a mathematical graph—where <strong>nodes represent junctions</strong> and <strong>edges represent resistors with weights</strong>—we are able to systematically reduce even highly complex configurations.</p>
+<p>This graph-based methodology offers several key advantages over traditional techniques:</p>
+<ul>
+<li>It enables <strong>automated simplification</strong> of circuits using computational algorithms.</li>
+<li>It naturally handles <strong>nested combinations</strong> and ambiguous topologies without requiring visual intuition.</li>
+<li>It leverages well-established graph operations, such as edge contraction, cycle detection, and multi-edge reduction, to mirror physical simplifications like series and parallel reduction.</li>
+</ul>
+<hr/>
+<h3 id="bridging-disciplines">Bridging Disciplines</h3>
+<p>This approach beautifully bridges the disciplines of:</p>
+<ul>
+<li><strong>Electrical Engineering</strong>, which provides the physical and theoretical background (Ohm's Law, Kirchhoff's Laws),</li>
+<li><strong>Computer Science</strong>, which contributes data structures (graphs) and algorithmic strategies (search, recursion, reduction),</li>
+<li><strong>Mathematics</strong>, which supplies tools like matrix representations, graph theory, and symbolic algebra.</li>
+</ul>
+<p>Such interdisciplinary fusion not only improves the efficiency of circuit analysis, but also opens the door for innovations in:</p>
+<ul>
+<li>📐 <strong>Circuit design automation</strong></li>
+<li><em>Simulation software</em>*</li>
+<li><strong>Education and visualization tools</strong></li>
+<li><strong>Optimization of electrical networks</strong></li>
+</ul>
+<hr/>
+<h3 id="future-outlook">Future Outlook</h3>
+<p>As circuits become more complex, incorporating <strong>nonlinear elements</strong>, <strong>time-dependent behaviors</strong>, and <strong>programmable logic</strong>, the need for <strong>advanced symbolic methods</strong>, <strong>graph-based simulations</strong>, and <strong>AI-driven optimizers</strong> will become even more pronounced.</p>
+<p>Graph theory sets the foundation for these developments, offering a clear, formal language to describe and manipulate electrical systems.</p>
+<hr/>
+<h3 id="final-thoughts">Final Thoughts</h3>
+<p>Studying equivalent resistance through graph theory is more than just an academic exercise—it is a practical, future-ready approach that enhances both understanding and capability.</p>
+<blockquote>
+<p>In a world where systems are becoming increasingly complex, the ability to model them simply and solve them algorithmically is not just useful—it's essential.</p>
+</blockquote>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">

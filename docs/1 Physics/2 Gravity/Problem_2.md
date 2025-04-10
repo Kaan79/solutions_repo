@@ -148,13 +148,13 @@ Understanding how the formulas for **escape velocity** and **orbital velocity** 
 
 **Escape velocity** is the minimum speed an object must have to break free from a planet’s gravitational field **without any further propulsion**. To derive this, we apply the **conservation of mechanical energy** principle.
 
-An object escaping a planet's gravity moves from radius ( R ) (near the planet's surface) to an infinite distance $$( R \to \infty )$$, where both potential and kinetic energy become zero.
+An object escaping a planet's gravity moves from radius ( R ) (near the planet's surface) to an infinite distance $( R \to \infty )$, where both potential and kinetic energy become zero.
 
 #### Total mechanical energy:
 - **Initial energy** at radius ( R ):  
-  - Kinetic: $$( \frac{1}{2}mv^2 )$$  
-  - Potential: $$( -\frac{GMm}{R} )$$  
-- **Final energy** at $$( R \to \infty )$$:  
+  - Kinetic: $( \frac{1}{2}mv^2 )$  
+  - Potential: $( -\frac{GMm}{R} )$  
+- **Final energy** at $( R \to \infty )$:  
   - Kinetic = 0  
   - Potential = 0
 

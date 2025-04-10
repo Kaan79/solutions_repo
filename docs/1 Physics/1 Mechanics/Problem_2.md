@@ -27,8 +27,9 @@ The motion of a **forced damped pendulum** is governed by a second-order, nonlin
 Using Newton’s second law for rotational systems, the torque equation becomes:
 
 $$
-I \frac{d^2 theta}{dt^2} = -mgL sin(theta) - b \frac{dtheta}{dt} + A cos(omega t)
+I \frac{d^2 \theta}{dt^2} = -mgL \sin(\theta) - b \frac{d\theta}{dt} + A \cos(\omega t)
 $$
+
 
 Here:
 - ( I = mL^2 ) is the moment of inertia for a point mass at the end of a rigid, massless rod,
@@ -40,18 +41,24 @@ Here:
 Dividing through by (I), we obtain the **dimensionless form** of the governing equation:
 
 $$
-\frac{d^2theta}{dt^2} + \frac{b}{mL^2} \frac{dtheta}{dt} + \frac{g}{L} sin(theta) = \frac{A}{mL^2} cos(omega t)
+\frac{d^2\theta}{dt^2} + \frac{b}{mL^2} \frac{d\theta}{dt} \frac{d^2\theta}{dt^2} + \frac{b}{mL^2} \frac{d\theta}{dt} + \frac{g}{L} \sin(\theta) = \frac{A}{mL^2} \cos(\omega t)
++ \frac{g}{L} \sin(\theta) = \frac{A}{mL^2} \cos(\omega t)
 $$
 
 Let us define the following constants:
-- Damping coefficient: ( \gamma = \frac{b}{mL^2} )
-- Natural frequency squared: ( \omega_0^2 = \frac{g}{L} )
-- Driving amplitude: ( f = \frac{A}{mL^2} )
+$$
+\begin{aligned}
+&\text{- Damping coefficient:} && \gamma = \frac{b}{mL^2} \\
+&\text{- Natural frequency squared:} && \omega_0^2 = \frac{g}{L} \\
+&\text{- Driving amplitude:} && f = \frac{A}{mL^2}
+\end{aligned}
+$$
+)
 
 Then the equation becomes:
 
 $$
-\frac{d^2theta}{dt^2} + gamma \frac{dtheta}{dt} + omega_0^2 sin(theta) = f cos(omega t)
+\frac{d^2\theta}{dt^2} + \gamma \frac{d\theta}{dt} + \omega_0^2 \sin(\theta) = f \cos(\omega t)
 $$
 
 This is the **nonlinear, non-homogeneous** second-order ODE that defines the system.
@@ -60,23 +67,28 @@ This is the **nonlinear, non-homogeneous** second-order ODE that defines the sys
 
 ### Small-Angle Approximation
 
-For small angular displacements (( \theta \ll 1 )), the sine term can be linearized using the Taylor expansion:
+For small angular displacements $$
+(( \theta \ll 1 ))$$
+, the sine term can be linearized using the Taylor expansion:
 
 $$
-sin(theta) approx theta - \frac{theta^3}{6} + \frac{theta^5}{120} - cdots
+\sin(\theta) \approx \theta - \frac{\theta^3}{6} + \frac{\theta^5}{120} - \cdots
 $$
+
 
 Neglecting higher-order terms:
 
 $$
-sin(theta) approx theta
+\sin(\theta) \approx \theta
 $$
+
 
 Substituting this into the governing equation:
 
 $$
-\frac{d^2 theta}{dt^2} + gamma \frac{dntheta}{dt} + omega_0^2 theta = f cos(omega t)
+\frac{d^2 \theta}{dt^2} + \gamma \frac{d\theta}{dt} + \omega_0^2 \theta = f \cos(\omega t)
 $$
+
 
 This is now a **linear differential equation**, which admits closed-form solutions using methods such as undetermined coefficients or variation of parameters. The general solution consists of:
 
@@ -90,30 +102,30 @@ This is now a **linear differential equation**, which admits closed-form solutio
 The homogeneous form is:
 
 $$
-\frac{d^2 theta}{dt^2} + gamma \frac{d theta}{dt} + omega_0^2 theta = 0
+\frac{d^2\theta}{dt^2} + \gamma \frac{d\theta}{dt} + \omega_0^2 \theta = 0
 $$
 
 Its characteristic equation is:
 
 $$
-r^2 + gamma r + omega_0^2 = 0
+r^2 + \gamma r + \omega_0^2 = 0
 $$
 
 Solutions depend on the discriminant 
 $$
-( Delta = gamma^2 - 4omega_0^2 ):
+( Delta = \gamma^2 - 4\ omega_0^2 ):
 $$
 1. **Underdamped** 
 $$
-(( gamma^2 < 4omega_0^2 )): Oscillatory decay
+\gamma^2 < 4\omega_0^2 \quad \Rightarrow \quad \text{Oscillatory decay (underdamped)}
 $$
 2. **Critically damped**
 $$
- (( gamma^2 = 4omega_0^2 )): Fastest non-oscillatory decay
+\gamma^2 = 4\omega_0^2 \quad \Rightarrow \quad \text{Fastest non-oscillatory decay (critically damped)}
  $$
 3. **Overdamped**
  $$
-(( gamma^2 > 4omega_0^2 )): Slow, non-oscillatory decay
+\gamma^2 > 4\omega_0^2 \quad \Rightarrow \quad \text{Slow, non-oscillatory decay (overdamped)}
 $$
 ---
 
@@ -122,7 +134,8 @@ $$
 The particular solution for the linearized system is of the form:
 
 $$
-theta_p(t) = C cos(omega t - delta)
+\theta_p(t) = C \cos(\omega t - \delta)
+
 $$
 
 Where:
@@ -135,7 +148,7 @@ $$
 - ( delta ) is the phase shift:
 
 $$
-delta = tan^{-1} left( \frac{gamma omega}{omega_0^2 - omega^2} right)
+\delta = \tan^{-1} \left( \frac{\gamma \omega}{\omega_0^2 - \omega^2} \right)
 $$
 
 ---
@@ -148,7 +161,7 @@ $$
 \omega_{\text{res}} = \sqrt{omega_0^2 - \frac{gamma^2}{2}}
 $$
 
-For weak damping (( \gamma \ll \omega_0 )), this simplifies to ( \omega \approx \omega_0 ). At resonance:
+For weak damping (gamma << omega0), this simplifies to (omega ≈ omega0). At resonance:
 
 - The system absorbs energy efficiently from the external force.
 - The response can grow very large (unless limited by damping or nonlinearity).
@@ -160,7 +173,7 @@ For weak damping (( \gamma \ll \omega_0 )), this simplifies to ( \omega \approx 
 When the small-angle approximation is no longer valid (i.e., large initial angles or high forcing amplitude), the governing equation remains nonlinear:
 
 $$
-\frac{d^2theta}{dt^2} + gamma \frac{d theta}{dt} + omega_0^2 sin(theta) = f cos(omega t)
+\frac{d^2\theta}{dt^2} + \gamma \frac{d\theta}{dt} + \omega_0^2 \sin(\theta) = f \cos(\omega t)
 $$
 
 This system cannot generally be solved analytically and must be explored using **numerical methods**, such as:
@@ -209,13 +222,13 @@ By systematically varying these parameters, one can observe a rich variety of be
 Damping affects how quickly energy dissipates and alters the resonance peak:
 
 $$
-theta(t) sim e^{-\frac{b}{2m}t} cos(omega_d t)
+\theta(t) \sim e^{-\frac{b}{2m}t} \cos(\omega_d t)
 $$
 
-Where ( \omega_d ) is the damped natural frequency:
+Where ( omega_d ) is the damped natural frequency:
 
 $$
-omega_d = \sqrt{omega_0^2 - left(\frac{b}{2m}right)^2}
+\omega_d = \sqrt{\omega_0^2 - \left(\frac{b}{2m}\right)^2}
 $$
 
 #### Driving Amplitude ( A )
@@ -241,25 +254,26 @@ Depending on parameter values, the system can exhibit:
 Periodic motion occurs when the pendulum returns to the same state after a fixed time interval ( T ), which is typically equal to the period of the external driving force:
 
 $$
-theta(t + T) = theta(t), quad \dot{theta}(t + T) = \dot{theta}(t)
+\theta(t + T) = \theta(t), \quad \dot{\theta}(t + T) = \dot{\theta}(t)
+
 $$
 
 This behavior indicates synchronization between the system's response and the periodic input. Such motion is characterized by:
 
 - **Stable, repeating trajectories** in time.
-- **Closed curves** in the phase space ( (\theta, \dot{\theta}) ).
+- **Closed curves** in the phase space (theta, theta_dot).
 - **Discrete points** in the Poincaré section, often forming a finite set of repeating values.
 
 Mathematically, if the system is governed by:
 
 $$
-\frac{d^2 theta}{dt^2} + beta \frac{d theta}{dt} + \frac{g}{L} sin(theta) = A cos(omega t)
+\frac{d^2 \theta}{dt^2} + \beta \frac{d\theta}{dt} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)
 $$
 
 Then a periodic solution satisfies:
 
 $$
-theta(t + nT) = theta(t), quad forall n in \mathbb{Z}
+\theta(t + nT) = \theta(t), \quad \forall n \in \mathbb{Z}
 $$
 
 ---
@@ -309,7 +323,7 @@ plt.show()
 A superposition of two or more incommensurate frequencies:
 
 $$
-theta(t) = A_1 cos(omega_1 t) + A_2 cos(omega_2 t)
+\theta(t) = A_1 \cos(\omega_1 t) + A_2 \cos(\omega_2 t)
 $$
 
 - Phase space: **toroidal curves** that never close.
@@ -320,11 +334,10 @@ $$
 
 Chaos is one of the most intriguing phenomena in nonlinear dynamics. In a chaotic system, the evolution is **deterministic**—meaning it follows a well-defined rule—but still **unpredictable in the long term**, due to extreme sensitivity to initial conditions.
 
-For the **forced damped pendulum**, chaotic motion can occur when the driving amplitude ( A ) or frequency ( \omega ) reach certain critical values. The governing nonlinear differential equation is:
+For the **forced damped pendulum**, chaotic motion can occur when the driving amplitude ( A ) or frequency ( omega ) reach certain critical values. The governing nonlinear differential equation is:
 
 $$
-\frac{d^2theta}{dt^2} + beta \frac{dtheta}{dt} + \frac{g}{L} sin(theta) = A cos(omega t)
-$$
+\frac{d^2\theta}{dt^2} + \beta \frac{d\theta}{dt} + \frac{g}{L} \sin(\theta) = A \cos(\omega t$$
 
 In the chaotic regime:
 
@@ -486,7 +499,8 @@ Plot (omega(t)) versus ( theta(t) )
 
 Sample 
 $$
-( (theta(t), omega(t)) ) at discrete times ( t_n = nT ), where ( T = \frac{2pi}{omega} )
+(\theta(t), \omega(t)) \text{ at discrete times } t_n = nT, \text{ where } T = \frac{2\pi}{\omega}
+
 $$
 - Periodic → single/few points
 - Quasiperiodic → closed curves
@@ -577,12 +591,14 @@ Where:
 - ( b ) is damping,
 - ( k ) is spring stiffness,
 - ( x(t) ) is displacement,
-- ( F_0  \cos(\omega t)  is periodic forcing (e.g., ground vibration).
+- - F0 * cos(omega * t) is periodic forcing (e.g., ground vibration).
+
 
 This is directly analogous to the linearized pendulum:
 
 $$
-\ddot{theta} + gamma \dot{theta} + omega_0^2 theta = f cos(omega t)
+\ddot{\theta} + \gamma \dot{\theta} + \omega_0^2 \theta = f \cos(\omega t)
+
 $$
 
 **Optimization Goal:** Maximize power harvested:

@@ -308,8 +308,8 @@ The values below show approximate **first (orbital)** and **second (escape)** co
 They provide insight into how planetary mass and radius affect the required velocities for orbit and escape.
 
 ### Earth:
-- Mass = $$( 5.972 \times 10^{24} \, \text{kg} )$$
-- Radius = $$( 6.371 \times 10^6 \, \text{m} )$$
+- Mass = $( 5.972 \times 10^{24} \, \text{kg} )$
+- Radius = $( 6.371 \times 10^6 \, \text{m} )$
 - $$( v_1 \approx 7.91 \, \text{km/s} )$$
 - $$( v_2 \approx 11.2 \, \text{km/s} )$$
 

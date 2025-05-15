@@ -109,7 +109,7 @@ plt.axis('square')
 plt.legend()
 plt.show()
 ```
-
+![alt text](image.png)
 ### Convergence
 ```python
 sizes = [100, 1000, 10000, 100000, 1000000]
@@ -123,63 +123,77 @@ plt.ylabel('Estimated Pi')
 plt.title('Convergence of Pi Estimation')
 plt.show()
 ```
+![alt text](image-1.png)
+---
+
+# Buffon's Needle Problem: Estimating $\pi$ with Geometry and Probability
+
+## 📖 Introduction
+
+Buffon's Needle is one of the oldest problems in geometric probability, introduced by the French mathematician **Georges-Louis Leclerc, Comte de Buffon** in the 18th century. 
+
+What makes this problem fascinating is that it connects **geometry, probability, and $\pi$** in a very intuitive yet surprising way.
+
+Unlike traditional methods of estimating $\pi$ through geometry (such as areas of circles), Buffon's Needle provides a **probabilistic experiment** to approximate $\pi$ by dropping a needle onto a plane ruled with parallel lines and observing how often it crosses them.
 
 ---
 
-## Part 2: Buffon's Needle Method
+## 📝 Problem Setup
 
-### Theory
-Estimate $\pi$ using:
+Imagine a floor (or a plane) with **parallel lines** drawn on it. These lines are:
+- Equally spaced with a distance **$D$** between them.
+
+Now, take a **needle of length $L$** (with $L < D$, meaning the needle is shorter than the distance between the lines).
+
+### Experiment Procedure:
+1. Drop the needle randomly onto the floor.
+2. Observe whether the needle **crosses one of the parallel lines**.
+3. Repeat the process many times and **count the number of crossings**.
+
+Over a large number of trials, we can use the proportion of crossings to estimate the value of $\pi$.
+
+---
+
+## 📐 Mathematical Derivation
+
+The probability that the needle crosses one of the lines is given by:
+
 $$
-\pi \approx \frac{2 \cdot L \cdot N_{throws}}{D \cdot N_{cross}}
+P_{cross} = \frac{2L}{D \cdot \pi}
 $$
 
-### Python Simulation
-```python
-def buffon_needle(num_throws, L=1.0, D=2.0):
-    crosses = 0
-    for _ in range(num_throws):
-        dist = np.random.uniform(0, D/2)
-        angle = np.random.uniform(0, np.pi/2)
-        if dist <= (L/2) * np.sin(angle):
-            crosses += 1
-    if crosses == 0:
-        return np.nan
-    return (2 * L * num_throws) / (D * crosses)
-```
+### Rearranging to Estimate $\pi$:
+If we perform $N_{throws}$ needle drops and count $N_{cross}$ crossings, we can rearrange the equation to approximate $\pi$ as:
 
-### Convergence
-```python
-trials = [100, 1000, 10000, 100000]
-estimates_buffon = [buffon_needle(n) for n in trials]
+$$
+\pi \approx \frac{2L \cdot N_{throws}}{D \cdot N_{cross}}
+$$
 
-plt.plot(trials, estimates_buffon, marker='x', linestyle='--', color='purple')
-plt.axhline(np.pi, color='r', linestyle='-')
-plt.xscale('log')
-plt.xlabel('Throws')
-plt.ylabel('Estimated Pi')
-plt.title("Buffon's Needle Convergence")
-plt.show()
-```
+### Where:
+- $L$ = Length of the needle
+- $D$ = Distance between the parallel lines
+- $N_{throws}$ = Total number of needle drops
+- $N_{cross}$ = Number of times the needle crosses a line
 
 ---
 
-## Comparison
-| Method | Accuracy | Convergence | Complexity |
-|---------|----------|-------------|------------|
-| Circle  | High     | Fast        | Simple     |
-| Buffon  | Medium   | Slow        | Geometric  |
+## 🧐 Why Does This Work?
+
+The underlying principle involves the **random orientation** of the needle and its **random distance to the nearest line**.
+
+When we drop the needle, two things are random:
+- The **distance** of the needle's center to the nearest line: uniformly distributed between $0$ and $\frac{D}{2}$.
+- The **angle** the needle makes with the parallel lines: uniformly distributed between $0$ and $\frac{\pi}{2}$.
+
+By integrating over all possible positions and angles (using **integral geometry**), we find that the expected number of crossings relates directly to $\pi$.
+
+This surprising connection allows us to **estimate $\pi$ experimentally** using this method.
 
 ---
 
-## Google Colab Notes
-```python
-# %matplotlib inline
-# For interactive Colab plots: %matplotlib notebook
-```
+## ✅ Practical Considerations
 
-## References
-- Buffon's Needle Problem
-- Monte Carlo Methods
-- Python Visualization
-```
+- The method becomes more accurate with a **large number of trials**.
+- For short needles ($L < D$), the derived formula is exact.
+- For longer needles, more complex formulas are needed.
+- This method is also sensitive to **random number generation quality**.

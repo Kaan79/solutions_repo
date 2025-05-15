@@ -257,6 +257,7 @@ plt.axis('square')
 plt.legend()
 plt.show()
 </code></pre>
+<p><img alt="alt text" src="../image.png"/></p>
 <h3 id="convergence">Convergence</h3>
 <pre><code class="language-python">sizes = [100, 1000, 10000, 100000, 1000000]
 estimates = [monte_carlo_pi(n)[0] for n in sizes]
@@ -269,74 +270,57 @@ plt.ylabel('Estimated Pi')
 plt.title('Convergence of Pi Estimation')
 plt.show()
 </code></pre>
+<h2 id="_1"><img alt="alt text" src="../image-1.png"/></h2>
+<h1 id="buffons-needle-problem-estimating-pi-with-geometry-and-probability">Buffon's Needle Problem: Estimating <span class="arithmatex">\(\pi\)</span> with Geometry and Probability</h1>
+<h2 id="introduction">📖 Introduction</h2>
+<p>Buffon's Needle is one of the oldest problems in geometric probability, introduced by the French mathematician <strong>Georges-Louis Leclerc, Comte de Buffon</strong> in the 18th century. </p>
+<p>What makes this problem fascinating is that it connects <strong>geometry, probability, and <span class="arithmatex">\(\pi\)</span></strong> in a very intuitive yet surprising way.</p>
+<p>Unlike traditional methods of estimating <span class="arithmatex">\(\pi\)</span> through geometry (such as areas of circles), Buffon's Needle provides a <strong>probabilistic experiment</strong> to approximate <span class="arithmatex">\(\pi\)</span> by dropping a needle onto a plane ruled with parallel lines and observing how often it crosses them.</p>
 <hr/>
-<h2 id="part-2-buffons-needle-method">Part 2: Buffon's Needle Method</h2>
-<h3 id="theory">Theory</h3>
-<p>Estimate <span class="arithmatex">\(\pi\)</span> using:
-$$
-\pi \approx \frac{2 \cdot L \cdot N_{throws}}{D \cdot N_{cross}}
-$$</p>
-<h3 id="python-simulation_1">Python Simulation</h3>
-<pre><code class="language-python">def buffon_needle(num_throws, L=1.0, D=2.0):
-    crosses = 0
-    for _ in range(num_throws):
-        dist = np.random.uniform(0, D/2)
-        angle = np.random.uniform(0, np.pi/2)
-        if dist &lt;= (L/2) * np.sin(angle):
-            crosses += 1
-    if crosses == 0:
-        return np.nan
-    return (2 * L * num_throws) / (D * crosses)
-</code></pre>
-<h3 id="convergence_1">Convergence</h3>
-<pre><code class="language-python">trials = [100, 1000, 10000, 100000]
-estimates_buffon = [buffon_needle(n) for n in trials]
-
-plt.plot(trials, estimates_buffon, marker='x', linestyle='--', color='purple')
-plt.axhline(np.pi, color='r', linestyle='-')
-plt.xscale('log')
-plt.xlabel('Throws')
-plt.ylabel('Estimated Pi')
-plt.title("Buffon's Needle Convergence")
-plt.show()
-</code></pre>
+<h2 id="problem-setup">📝 Problem Setup</h2>
+<p>Imagine a floor (or a plane) with <strong>parallel lines</strong> drawn on it. These lines are:
+- Equally spaced with a distance <strong><span class="arithmatex">\(D\)</span></strong> between them.</p>
+<p>Now, take a <strong>needle of length <span class="arithmatex">\(L\)</span></strong> (with <span class="arithmatex">\(L &lt; D\)</span>, meaning the needle is shorter than the distance between the lines).</p>
+<h3 id="experiment-procedure">Experiment Procedure:</h3>
+<ol>
+<li>Drop the needle randomly onto the floor.</li>
+<li>Observe whether the needle <strong>crosses one of the parallel lines</strong>.</li>
+<li>Repeat the process many times and <strong>count the number of crossings</strong>.</li>
+</ol>
+<p>Over a large number of trials, we can use the proportion of crossings to estimate the value of <span class="arithmatex">\(\pi\)</span>.</p>
 <hr/>
-<h2 id="comparison">Comparison</h2>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Accuracy</th>
-<th>Convergence</th>
-<th>Complexity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Circle</td>
-<td>High</td>
-<td>Fast</td>
-<td>Simple</td>
-</tr>
-<tr>
-<td>Buffon</td>
-<td>Medium</td>
-<td>Slow</td>
-<td>Geometric</td>
-</tr>
-</tbody>
-</table>
-<hr/>
-<h2 id="google-colab-notes">Google Colab Notes</h2>
-<pre><code class="language-python"># %matplotlib inline
-# For interactive Colab plots: %matplotlib notebook
-</code></pre>
-<h2 id="references">References</h2>
+<h2 id="mathematical-derivation">📐 Mathematical Derivation</h2>
+<p>The probability that the needle crosses one of the lines is given by:</p>
+<div class="arithmatex">\[
+P_{cross} = \frac{2L}{D \cdot \pi}
+\]</div>
+<h3 id="rearranging-to-estimate-pi">Rearranging to Estimate <span class="arithmatex">\(\pi\)</span>:</h3>
+<p>If we perform <span class="arithmatex">\(N_{throws}\)</span> needle drops and count <span class="arithmatex">\(N_{cross}\)</span> crossings, we can rearrange the equation to approximate <span class="arithmatex">\(\pi\)</span> as:</p>
+<div class="arithmatex">\[
+\pi \approx \frac{2L \cdot N_{throws}}{D \cdot N_{cross}}
+\]</div>
+<h3 id="where">Where:</h3>
 <ul>
-<li>Buffon's Needle Problem</li>
-<li>Monte Carlo Methods</li>
-<li>Python Visualization
-```</li>
+<li><span class="arithmatex">\(L\)</span> = Length of the needle</li>
+<li><span class="arithmatex">\(D\)</span> = Distance between the parallel lines</li>
+<li><span class="arithmatex">\(N_{throws}\)</span> = Total number of needle drops</li>
+<li><span class="arithmatex">\(N_{cross}\)</span> = Number of times the needle crosses a line</li>
+</ul>
+<hr/>
+<h2 id="why-does-this-work">🧐 Why Does This Work?</h2>
+<p>The underlying principle involves the <strong>random orientation</strong> of the needle and its <strong>random distance to the nearest line</strong>.</p>
+<p>When we drop the needle, two things are random:
+- The <strong>distance</strong> of the needle's center to the nearest line: uniformly distributed between <span class="arithmatex">\(0\)</span> and <span class="arithmatex">\(\frac{D}{2}\)</span>.
+- The <strong>angle</strong> the needle makes with the parallel lines: uniformly distributed between <span class="arithmatex">\(0\)</span> and <span class="arithmatex">\(\frac{\pi}{2}\)</span>.</p>
+<p>By integrating over all possible positions and angles (using <strong>integral geometry</strong>), we find that the expected number of crossings relates directly to <span class="arithmatex">\(\pi\)</span>.</p>
+<p>This surprising connection allows us to <strong>estimate <span class="arithmatex">\(\pi\)</span> experimentally</strong> using this method.</p>
+<hr/>
+<h2 id="practical-considerations">✅ Practical Considerations</h2>
+<ul>
+<li>The method becomes more accurate with a <strong>large number of trials</strong>.</li>
+<li>For short needles (<span class="arithmatex">\(L &lt; D\)</span>), the derived formula is exact.</li>
+<li>For longer needles, more complex formulas are needed.</li>
+<li>This method is also sensitive to <strong>random number generation quality</strong>.</li>
 </ul>
 </div>
 </div><footer>

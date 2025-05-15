@@ -172,6 +172,188 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="measuring-earths-gravitational-acceleration-with-a-pendulum">Measuring Earth's Gravitational Acceleration with a Pendulum</h1>
+<hr/>
+<h2 id="motivation">Motivation</h2>
+<p>The acceleration <span class="arithmatex">\(g\)</span> due to gravity is a fundamental constant that influences a wide range of physical phenomena. Measuring <span class="arithmatex">\(g\)</span> accurately is crucial for:</p>
+<ul>
+<li>Understanding gravitational interactions.</li>
+<li>Designing structures.</li>
+<li>Conducting experiments in various fields.</li>
+</ul>
+<p>One classic method for determining <span class="arithmatex">\(g\)</span> is through the oscillations of a simple pendulum, where the period of oscillation depends on the local gravitational field.</p>
+<hr/>
+<h2 id="task">Task</h2>
+<p><strong>Objective</strong>:
+- Measure the acceleration <span class="arithmatex">\(g\)</span> due to gravity using a pendulum.
+- Analyze uncertainties in the measurements in detail.</p>
+<p>This exercise emphasizes:
+- Rigorous measurement practices.
+- Uncertainty analysis.
+- Their role in experimental physics.</p>
+<hr/>
+<h2 id="procedure">Procedure</h2>
+<h3 id="1-materials">1️⃣ Materials</h3>
+<ul>
+<li>A string (1 or 1.5 meters long).</li>
+<li>A small weight (e.g., bag of coins, sugar, key chain) mounted on the string.</li>
+<li>Stopwatch (or smartphone timer).</li>
+<li>Ruler or measuring tape.</li>
+</ul>
+<hr/>
+<h3 id="2-setup">2️⃣ Setup</h3>
+<ul>
+<li>Attach the weight to the string and fix the other end to a sturdy support.</li>
+<li>Measure the length of the pendulum, <span class="arithmatex">\(L\)</span>, from the suspension point to the center of the weight.</li>
+</ul>
+<h4 id="uncertainty-in-length">Uncertainty in Length:</h4>
+<div class="arithmatex">\[ \Delta L = \frac{\text{Ruler Resolution}}{2} \]</div>
+<hr/>
+<h3 id="3-data-collection">3️⃣ Data Collection</h3>
+<ol>
+<li>Displace the pendulum slightly (<span class="arithmatex">\(&lt;15^\circ\)</span>) and release.</li>
+<li>Measure the time for 10 full oscillations (<span class="arithmatex">\(T_{10}\)</span>), repeat 10 times.</li>
+<li>Record all 10 measurements.</li>
+<li>Calculate:</li>
+<li>Mean time for 10 oscillations: <span class="arithmatex">\(\overline{T_{10}}\)</span></li>
+<li>Standard deviation: <span class="arithmatex">\(\sigma_T\)</span></li>
+<li>Determine uncertainty in mean time:
+$$ \Delta T_{10} = \frac{\sigma_T}{\sqrt{n}} $$
+where <span class="arithmatex">\(n = 10\)</span>.</li>
+</ol>
+<hr/>
+<h2 id="calculations">Calculations</h2>
+<h3 id="1-calculate-the-period">1️⃣ Calculate the Period</h3>
+<p>Compute the period of one oscillation:
+$$ T = \frac{\overline{T_{10}}}{10} $$
+Compute its uncertainty:
+$$ \Delta T = \frac{\Delta T_{10}}{10} $$</p>
+<hr/>
+<h3 id="2-determine-g">2️⃣ Determine <span class="arithmatex">\(g\)</span></h3>
+<p>From the pendulum formula:
+$$ g = \frac{4\pi^2 L}{T^2} $$</p>
+<hr/>
+<h3 id="3-propagate-uncertainties">3️⃣ Propagate Uncertainties</h3>
+<p>Compute the combined uncertainty in <span class="arithmatex">\(g\)</span>:
+$$ \Delta g = g \sqrt{ \left( \frac{\Delta L}{L} \right)^2 + \left( 2 \frac{\Delta T}{T} \right)^2 } $$</p>
+<hr/>
+<h2 id="analysis">Analysis</h2>
+<h3 id="1-compare-measured-g">1️⃣ Compare Measured <span class="arithmatex">\(g\)</span></h3>
+<ul>
+<li>Compare measured <span class="arithmatex">\(g\)</span> with standard value:
+$$ g_{\text{standard}} = 9.81 \, m/s^2 $$</li>
+</ul>
+<h3 id="2-discuss">2️⃣ Discuss:</h3>
+<ul>
+<li>Effect of measurement resolution on <span class="arithmatex">\(\Delta L\)</span>.</li>
+<li>Variability in timing and its impact on <span class="arithmatex">\(\Delta T\)</span>.</li>
+<li>Experimental limitations and assumptions.</li>
+</ul>
+<hr/>
+<h2 id="deliverables">Deliverables</h2>
+<ol>
+<li>Tabulated data in Markdown:</li>
+<li><span class="arithmatex">\(L\)</span>, <span class="arithmatex">\(\Delta L\)</span>, <span class="arithmatex">\(T_{10}\)</span> measurements.</li>
+<li><span class="arithmatex">\(\overline{T_{10}}\)</span>, <span class="arithmatex">\(\sigma_T\)</span>, <span class="arithmatex">\(\Delta T\)</span>.</li>
+<li>Calculated <span class="arithmatex">\(g\)</span> and <span class="arithmatex">\(\Delta g\)</span>.</li>
+<li>Discussion on sources of uncertainty and their impact on results.</li>
+</ol>
+<hr/>
+<h2 id="example-data-table">📊 Example Data Table</h2>
+<table>
+<thead>
+<tr>
+<th>Measurement</th>
+<th>Value</th>
+<th>Uncertainty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(L\)</span></td>
+<td>1.200 m</td>
+<td>0.005 m</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\overline{T_{10}}\)</span></td>
+<td>20.50 s</td>
+<td>0.12 s</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(T\)</span></td>
+<td>2.050 s</td>
+<td>0.012 s</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(g\)</span></td>
+<td>9.02 m/s²</td>
+<td>0.20 m/s²</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="detailed-derivation">Detailed Derivation</h2>
+<h3 id="pendulum-motion">Pendulum Motion</h3>
+<p>The motion of a simple pendulum is governed by:</p>
+<div class="arithmatex">\[ T = 2\pi \sqrt{\frac{L}{g}} \]</div>
+<p>Rearranged to solve for <span class="arithmatex">\(g\)</span>:</p>
+<div class="arithmatex">\[ g = \frac{4\pi^2 L}{T^2} \]</div>
+<hr/>
+<h3 id="error-propagation">Error Propagation</h3>
+<p>For multiplicative and power relationships, relative uncertainties combine as:</p>
+<div class="arithmatex">\[ \frac{\Delta g}{g} = \sqrt{ \left( \frac{\Delta L}{L} \right)^2 + \left( 2 \frac{\Delta T}{T} \right)^2 } \]</div>
+<p>Absolute uncertainty:</p>
+<div class="arithmatex">\[ \Delta g = g \cdot \frac{\Delta g}{g} \]</div>
+<hr/>
+<h2 id="practical-notes">Practical Notes</h2>
+<ul>
+<li>Use a light yet dense weight for minimal air resistance.</li>
+<li>Measure <span class="arithmatex">\(L\)</span> from the suspension point to the center of mass.</li>
+<li>Ensure the angle is small (<span class="arithmatex">\(&lt;15^\circ\)</span>) to maintain simple harmonic motion assumptions.</li>
+<li>Repeat timing multiple times to reduce human reaction time error.</li>
+<li>Average results for reliable values.</li>
+</ul>
+<hr/>
+<h2 id="uncertainty-sources">Uncertainty Sources</h2>
+<h3 id="length-measurement-delta-l">Length Measurement (<span class="arithmatex">\(\Delta L\)</span>):</h3>
+<ul>
+<li>Instrument resolution.</li>
+<li>Positioning error.</li>
+</ul>
+<h3 id="time-measurement-delta-t">Time Measurement (<span class="arithmatex">\(\Delta T\)</span>):</h3>
+<ul>
+<li>Human reaction time.</li>
+<li>Environmental factors (e.g., air currents).</li>
+</ul>
+<h3 id="other-factors">Other Factors:</h3>
+<ul>
+<li>Small-angle approximation validity.</li>
+<li>Neglecting damping effects.</li>
+<li>Flexibility of the string.</li>
+</ul>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>By following this procedure, you can accurately estimate the local acceleration due to gravity. The accuracy depends on:</p>
+<ul>
+<li>Precise measurements.</li>
+<li>Careful uncertainty analysis.</li>
+<li>Understanding physical limitations of the experimental setup.</li>
+</ul>
+<hr/>
+<h2 id="bonus-equations-reference">Bonus Equations Reference</h2>
+<h3 id="full-period-formula">Full Period Formula:</h3>
+<div class="arithmatex">\[ T = 2\pi \sqrt{\frac{L}{g}} \]</div>
+<h3 id="gravitational-acceleration">Gravitational Acceleration:</h3>
+<div class="arithmatex">\[ g = \frac{4\pi^2 L}{T^2} \]</div>
+<h3 id="uncertainty-in-g">Uncertainty in <span class="arithmatex">\(g\)</span>:</h3>
+<div class="arithmatex">\[ \Delta g = g \sqrt{ \left( \frac{\Delta L}{L} \right)^2 + \left( 2 \frac{\Delta T}{T} \right)^2 } \]</div>
+<hr/>
+<h2 id="final-remarks">Final Remarks</h2>
+<p>This exercise connects fundamental physics principles with practical lab techniques. By propagating uncertainties, students learn how experimental errors affect calculated constants.</p>
+<blockquote>
+<p><strong>Note</strong>: Ensure all measurements, calculations, and discussions are documented properly in your lab notebook or markdown report.</p>
+</blockquote>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
